@@ -1437,24 +1437,21 @@ Choose an Attachment
 </div>
 
 <script>
-// ---------------------------
-// BACKER & ATTACHMENT LOGIC
-// ---------------------------
 function sendHeightToParent() {
-  const height = document.body.scrollHeight;
+  const height = document.documentElement.scrollHeight;
   window.parent.postMessage({
     type: "resize-iframe",
     height: height
   }, "*");
 }
 
-// Run on load
 window.addEventListener("load", sendHeightToParent);
 
-// Run whenever accordion changes
-document.addEventListener("click", function() {
-  setTimeout(sendHeightToParent, 300);
+const observer = new ResizeObserver(() => {
+  sendHeightToParent();
 });
+
+observer.observe(document.body);
 function setBacker(src, name) {
   document.getElementById('backerPreview').src = src;
   document.getElementById('backerName').textContent = name;
