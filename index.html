@@ -1,0 +1,1562 @@
+<div style="max-width:1100px;margin:0 auto;text-align:center;">
+  <!-- TITLE -->
+  <h3 style="font-size:28px;font-weight:600;margin-bottom:20px;">
+    Interchangeables Preview
+  </h3>
+  <!-- PREVIEW AREA -->
+<div id="previewArea"     style="position:relative;width:100%;max-width:320px;aspect-ratio:1/1;margin:0 auto 30px auto;">
+    <img id="backerPreview"
+         src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/2_Wide%20Stripe.png/:/rs=w:740,cg:true,m"
+         style="width:100%;height:auto;">
+<img id="attachmentPreview"
+     src=""
+     style="position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%) scale(1);
+            pointer-events:none;">
+  </div>
+<!-- CURRENT PREVIEW TITLES -->
+<div id="previewTitle" style="text-align:center; margin-top:-15px; line-height:1.3; font-size:15px;">
+  <div>
+    Backer – <span id="backerName" style="font-weight:700;">Wide Stripe</span>
+  </div>
+  <div>
+    Attachment – <span id="attachmentName" style="font-weight:700;">None</span>
+  </div>
+</div>
+<style>
+.backers-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.backers-container .backer-item {
+  flex: 0 0 auto; /* desktop */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Responsive images */
+.backers-container .backer-item img {
+  width: 100%;
+  max-width: 70px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+/* Mobile: 3 per row (adjusted for gap space) */
+@media (max-width: 768px) {
+  .backers-container .backer-item {
+    flex: 0 0 calc(33.333% - 8px);
+    max-width: calc(33.333% - 8px);
+  }
+}
+/* Force GoDaddy HTML container to auto-size */
+html, body {
+  overflow-x: hidden;
+}
+
+section, 
+div[class*="html"], 
+div[class*="custom"], 
+div[data-section] {
+  height: auto !important;
+  min-height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* 👇 ADD THIS NEW PART */
+section,
+div,
+[class*="section"],
+[class*="html"],
+[class*="custom"] {
+  transition: none !important;
+  animation: none !important;
+}
+/* Accordion animation control */
+#everyday,
+#spring,
+#summer,
+#fall,
+#halloween,
+#winter,
+#sports {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.25s ease;
+}
+#everyday {
+  max-height: 1000px;
+}
+</style>
+
+<!-- BACKERS -->
+<h4 style="font-size:22px;font-weight:500;margin-bottom:15px;">
+  Choose a Backer
+</h4>
+
+<div class="backers-container">
+  <div class="backer-item">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/2_Wide%20Stripe.png/:/rs=w:740,cg:true,m"
+         onclick="setBacker(this.src, 'Wide Stripe')">
+    <div style="margin-top:6px; font-size:14px; font-weight:600;">Wide Stripe</div>
+  </div>
+
+  <div class="backer-item">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/1_Brown.png/:/rs=w:740,cg:true,m"
+         onclick="setBacker(this.src, 'Brown Stain')">
+    <div style="margin-top:6px; font-size:14px; font-weight:600;">Brown Stain</div>
+  </div>
+
+  <div class="backer-item">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/3_Wood.png/:/rs=w:740,cg:true,m"
+         onclick="setBacker(this.src, 'Natural Stain')">
+    <div style="margin-top:6px; font-size:14px; font-weight:600;">Natural Stain</div>
+  </div>
+
+  <div class="backer-item">
+    <img src="SHIPLAP_URL"
+         onclick="setBacker(this.src, 'Shiplap')">
+    <div style="margin-top:6px; font-size:14px; font-weight:600;">Shiplap</div>
+  </div>
+
+  <div class="backer-item">
+    <img src="GREY_URL"
+         onclick="setBacker(this.src, 'Grey')">
+    <div style="margin-top:6px; font-size:14px; font-weight:600;">Grey</div>
+  </div>
+
+  <div class="backer-item">
+    <img src="BLACK_URL"
+         onclick="setBacker(this.src, 'Black')">
+    <div style="margin-top:6px; font-size:14px; font-weight:600;">Black</div>
+  </div>
+
+  <div class="backer-item">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Vertical%20Grey.png/:/rs=w:740,cg:true,m"
+         onclick="setBacker(this.src, 'Vertical Grey')">
+    <div style="margin-top:6px; font-size:14px; font-weight:600;">Vertical Grey</div>
+  </div>
+
+  <div class="backer-item">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Vertical%20Brown.png/:/rs=w:740,cg:true,m"
+         onclick="setBacker(this.src, 'Vertical Brown')">
+    <div style="margin-top:6px; font-size:14px; font-weight:600;">Vertical Brown</div>
+  </div>
+
+  <div class="backer-item">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Vertical%20Black.png/:/rs=w:740,cg:true,m"
+         onclick="setBacker(this.src, 'Vertical Black')">
+    <div style="margin-top:6px; font-size:14px; font-weight:600;">Vertical Black</div>
+  </div>
+</div>
+<!-- ATTACHMENTS -->
+<div style="width:100%; text-align:center; display:block;">
+
+<h4 style="font-size:22px;font-weight:500;margin-bottom:10px;">
+Choose an Attachment
+</h4>
+
+<!-- EVERYDAY (OPEN BY DEFAULT) -->
+<h5 onclick="toggleSection('everyday', this)"
+    data-title="Everyday"
+    style="cursor:pointer;font-size:18px;font-weight:500;margin-top:20px; display:block; width:100%;">
+    Everyday
+</h5>
+
+<div id="everyday" style="justify-content:center; gap:10px; flex-wrap:wrap;">
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bee.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Bee', scale: 0.35, top: '63%', left: '52%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Bee</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Beehive.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Beehive', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Beehive</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Barn.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Barn', scale: 0.35, top: '62%', left: '50%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Barn</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Animal%20Stack.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Animal Stack', scale: 0.35, top: '66%', left: '49.6%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Animal Stack</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Ladybug.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Ladybug', scale: 0.35, top: '63%', left: '52%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Ladybug</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Dog.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Dog', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Dog</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Dog%20Bone.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Dog Bone - Red', scale: 0.35, top: '62%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Dog Bone -<br>Red
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Cat.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Cat', scale: 0.35, top: '63%', left: '52%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Cat</div>
+  </div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bear.png/:/rs=w:740,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'Bear Silhouette', scale: 0.35, top: '64%', left: '51%' })"
+       style="width:65px; cursor:pointer; display:block;">
+  <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Bear<br>Silhouette
+</div>
+  </div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bird.png/:/rs=w:740,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'Bird', scale: 0.35, top: '63%', left: '52%' })"
+       style="width:65px; cursor:pointer; display:block;">
+  <div style="font-size:13px; font-weight:600;">Bird</div>
+</div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Dogwood.png/:/rs=w:740,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'Dogwood', scale: 0.35, top: '63%', left: '52%' })"
+       style="width:65px; cursor:pointer; display:block;">
+  <div style="font-size:13px; font-weight:600;">Dogwood</div>
+</div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Rainbow.png/:/rs=w:740,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'Rainbow', scale: 0.35, top: '64%', left: '51%' })"
+       style="width:65px; cursor:pointer; display:block;">
+  <div style="font-size:13px; font-weight:600;">Rainbow</div>
+</div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Camper%20Green.png/:/rs=w:740,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'Camper - Green', scale: 0.35, top: '64%', left: '51%' })"
+       style="width:65px; cursor:pointer; display:block;">
+<div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Camper -<br>Green
+</div>
+  </div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Camper%20Red.png/:/rs=w:740,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'Camper - Red', scale: 0.35, top: '64%', left: '51%' })"
+       style="width:65px; cursor:pointer; display:block;">
+<div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Camper -<br>Red
+</div>
+  </div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Grad%20Hat.png/:/rs=w:740,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'Grad Hat', scale: 0.35, top: '62%', left: '52%' })"
+       style="width:65px; cursor:pointer; display:block;">
+  <div style="font-size:13px; font-weight:600;">Grad Hat</div>
+</div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Masquerade%20Mask.png/:/rs=w:364,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'Masquerade Mask', scale: 0.35, top: '62%', left: '52%' })"
+       style="width:65px; cursor:pointer; display:block;">
+<div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Masquerade<br>Mask
+</div>
+  </div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Red%20Solo%20Cup.png/:/rs=w:364,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'Red Solo Cup', scale: 0.35, top: '63%', left: '51%' })"
+       style="width:65px; cursor:pointer; display:block;">
+<div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Red Solo<br>Cup
+</div>
+  </div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Succulent%20V2.png/:/rs=w:364,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'Succulent', scale: 0.35, top: '62%', left: '51%' })"
+       style="width:65px; cursor:pointer; display:block;">
+  <div style="font-size:13px; font-weight:600;">Succulent</div>
+</div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/NC%20State%20Outline.png/:/rs=w:364,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'NC State', scale: 0.35, top: '62%', left: '51%' })"
+       style="width:65px; cursor:pointer; display:block;">
+  <div style="font-size:13px; font-weight:600;">NC State</div>
+</div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Cupcake.png/:/rs=w:364,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'Cupcake', scale: 0.35, top: '62%', left: '51%' })"
+       style="width:65px; cursor:pointer; display:block;">
+  <div style="font-size:13px; font-weight:600;">Cupcake</div>
+</div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Strawberry.png/:/rs=w:364,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'Strawberry', scale: 0.35, top: '64%', left: '51%' })"
+       style="width:65px; cursor:pointer; display:block;">
+  <div style="font-size:13px; font-weight:600;">Strawberry</div>
+</div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Orange%20Slice.png/:/rs=w:364,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'Orange', scale: 0.35, top: '61%', left: '52%' })"
+       style="width:65px; cursor:pointer; display:block;">
+  <div style="font-size:13px; font-weight:600;">Orange</div>
+</div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+  <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Apple%20Best%20Teacher.png/:/rs=w:364,cg:true,m"
+       onclick="setAttachment(this.src, { name: 'Best Teacher Apple', scale: 0.35, top: '63%', left: '51%' })"
+       style="width:65px; cursor:pointer; display:block;">
+<div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Best Teacher<br>Apple
+</div>
+  </div>
+
+</div>
+
+<!-- SPRING -->
+<h5 onclick="toggleSection('spring', this)"
+    data-title="Spring"
+    style="cursor:pointer;font-size:18px;font-weight:500;margin-top:5px; display:block; width:100%;">
+    Spring
+</h5>
+
+<div id="spring" style="justify-content:center; gap:10px; flex-wrap:wrap;">
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Red%20Heart.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Red Heart', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Red Heart</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/XO.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'XO', scale: 0.35, top: '64%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">XO</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sweetheart%20Kiss%20Me%20Blue.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Sweetheart - Kiss Me - Blue', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+  <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Sweetheart<br>Kiss Me -<br> Blue
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sweetheart%20XOXO%20Purple.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Sweetheart - XOXO - Purple', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Sweetheart<br>XOXO -<br>Purple
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Leprechaun%20Hat%20Dark%20Green.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Leprechaun Hat - Dark Green', scale: 0.35, top: '64%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:92px;
+">
+  Leprechaun Hat<br>- Dark Green
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Leprechaun%20Hat%20Lime.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Leprechaun Hat - Lime', scale: 0.35, top: '62%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:92px;
+">
+  Leprechaun Hat<br>- Lime
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Leprechaun.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Leprechaun', scale: 0.35, top: '64%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Leprechaun</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Clover%20Dark%20Green%20w_%20Gold.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Clover - Dark Green/Gold', scale: 0.35, top: '64%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Clover -<br>Dark Green/<br>Gold
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Clover%20Lime%20Green.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Clover - Lime', scale: 0.35, top: '63%', left: '52%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Clover -<br>Lime
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Chick%20in%20Egg%20Blue.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Chick - Blue', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Chick -<br>Blue
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Chick%20in%20Egg%20w_%20Blush%20Blue.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Chick - Blue w/Blush', scale: 0.35, top: '63%', left: '52%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Chick -<br>Blue w/Blush
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Peep%20Blue.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Peep - Blue', scale: 0.35, top: '63%', left: '50%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Peep -<br>Blue
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Peep%20Yellow.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Peep - Yellow', scale: 0.35, top: '63%', left: '50.9%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Peep -<br>Yellow
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bunny%20Sillhouette%20Green.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Bunny Silhouette - Green', scale: 0.35, top: '61%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Bunny Silhouette -<br>Green
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bunny%20Sillhouette%20Blue.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Bunny Silhouette - Blue', scale: 0.35, top: '60.5%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Bunny Silhouette -<br>Blue
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bunny%20Sillhouette.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Bunny', scale: 0.35, top: '62%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Bunny</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Easter%20Cross.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Easter Cross', scale: 0.35, top: '65%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Easter Cross</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Eggs%20in%20Easter%20Basket.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Easter Basket', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Easter Basket</div>
+  </div>
+
+</div>
+<!-- SUMMER -->
+<h5 onclick="toggleSection('summer', this)"
+    data-title="Summer"
+    style="cursor:pointer;font-size:18px;font-weight:500;margin-top:5px; display:block; width:100%;">
+    Summer
+</h5>
+
+<div id="summer" style="justify-content:center; gap:10px; flex-wrap:wrap;">
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Flag.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Flag', scale: 0.35, top: '62.5%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Flag</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sun%20Orange.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Sun - Orange', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+<div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Sun -<br>Orange
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sun%20Yellow.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Sun - Yellow', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Sun -<br>Yellow
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sand%20Dollar.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Sand Dollar', scale: 0.35, top: '64%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Sand Dollar</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Conch%20Shell.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Conch', scale: 0.35, top: '64%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Conch</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Beach%20Ball.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Beach Ball', scale: 0.35, top: '64%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Beach Ball</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Starfish.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Starfish', scale: 0.35, top: '62%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Starfish</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Mermaid%20Tail%20V1.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Mermaid Tail - Pink', scale: 0.35, top: '68%', left: '49%' })"
+         style="width:65px; cursor:pointer; display:block;">
+<div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:84px;
+">
+  Mermaid Tail -<br>Pink
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Mermaid%20Tail%20V2.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Mermaid Tail - Green', scale: 0.35, top: '67%', left: '48%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:84px;
+">
+  Mermaid Tail -<br>Green
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Turtle.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Turtle', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Turtle</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Flamingo%20Pink.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Flamingo - Pink', scale: 0.35, top: '62.5%', left: '48.5%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Flamingo -<br>Pink
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Flamino%20Orange.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Flamingo - Orange', scale: 0.35, top: '62.5%', left: '49.5%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Flamingo -<br>Orange
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Hibiscus%20Pink%20%26%20Yellow.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Hibiscus - Pink/Yellow', scale: 0.35, top: '62%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+<div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Hibiscus -<br>Pink/Yellow
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Hibiscus%20Coral%20%26%20Yellow.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Hibiscus Coral/Yellow', scale: 0.35, top: '62%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Hibiscus -<br>Coral/Yellow
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Popsicle%20Blue.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Popsicle', scale: 0.35, top: '65%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Popsicle</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Pineapple.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Pineapple', scale: 0.35, top: '60.5%', left: '50%' })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Pineapple</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Watermelon%20Pink.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Watermelon - Pink', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+  <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:77px;
+">
+  Watermelon -<br>Pink
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Watermelon%20Red.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Watermelon - Red', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:77px;
+">
+  Watermelon -<br>Red
+</div>
+  </div>
+
+</div>
+<!-- FALL -->
+<h5 onclick="toggleSection('fall', this)"
+    data-title="Fall"
+    style="cursor:pointer;font-size:18px;font-weight:500;margin-top:5px; display:block; width:100%;">
+    Fall
+</h5>
+<div id="fall" style="justify-content:center; gap:10px; flex-wrap:wrap;">
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Turkey.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Turkey', 
+           scale: 0.35,
+           top: '61%',
+           left: '51%'
+         })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Turkey</div>
+  </div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Football.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Football', 
+           scale: 0.35,
+           top: '63%',
+           left: '51%'
+         })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Football</div>
+  </div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sunflower.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Sunflower', 
+           scale: 0.35,
+           top: '62%',
+           left: '51%'
+         })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Sunflower</div>
+  </div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Leaf.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Leaf', 
+           scale: 0.35,
+           top: '63%',
+           left: '51%'
+         })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Leaf</div>
+  </div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Pumpkin.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Pumpkin', 
+           scale: 0.35,
+           top: '62%',
+           left: '51%'
+         })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Pumpkin</div>
+  </div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Scarecrow.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Scarecrow', 
+           scale: 0.35,
+           top: '63%',
+           left: '51%'
+         })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Scarecrow</div>
+  </div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Mushroom%20Red.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Mushroom - Red', 
+           scale: 0.35,
+           top: '62.5%',
+           left: '51%'
+         })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Mushroom -<br>Red
+</div>
+  </div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Mushroom%20Pink.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Mushroom - Pink', 
+           scale: 0.35,
+           top: '62.5%',
+           left: '51%'
+         })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Mushroom -<br>Pink
+</div>
+  </div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Mushroom%20Yellow.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Mushroom - Yellow', 
+           scale: 0.35,
+           top: '62.5%',
+           left: '51%'
+         })"
+         style="width:65px; cursor:pointer; display:block;">
+ <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Mushroom -<br>Yellow
+</div>
+  </div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Beer.png/:/rs=w:740,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Beer', 
+           scale: 0.35,
+           top: '62%',
+           left: '48%'
+         })"
+         style="width:65px; cursor:pointer; display:block;">
+    <div style="font-size:13px; font-weight:600;">Beer</div>
+  </div>
+</div>
+<!-- HALLOWEEN -->
+<h5 onclick="toggleSection('halloween', this)"
+    data-title="Halloween"
+    style="cursor:pointer;font-size:18px;font-weight:500;margin-top:5px; display:block; width:100%;">
+    Halloween
+</h5>
+<div id="halloween" style="justify-content:center;gap:10px;flex-wrap:wrap;">
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bat%20Purple.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Bat - Purple', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Bat - Purple</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bat%20Black.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Bat - Black', scale: 0.35, top: '62%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Bat - Black</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Ghost%20V1.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Ghost V1', scale: 0.35, top: '65%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Ghost V1</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Ghost%20V2.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Ghost V2', scale: 0.35, top: '64.5%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Ghost V2</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Cauldron.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Cauldron', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Cauldron</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Grave%20Headstone.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Grave Headstone', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Grave Headstone</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sugar%20Skull.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Sugar Skull', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Sugar Skull</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Skull.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Skull', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Skull</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Jack-o-Lantern.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Jock-o-Lantern', scale: 0.35, top: '62.5%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Jack-o-Lantern</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Frankenstein.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Frankenstein', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Frankenstein</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Candy%20Corn.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Candy Corn', scale: 0.35, top: '62.5%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Candy Corn</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Jack.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Jack', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Jack</div>
+  </div>
+
+</div>
+
+<!-- WINTER -->
+<h5 onclick="toggleSection('winter', this)"
+    data-title="Winter"
+    style="cursor:pointer;font-size:18px;font-weight:500;margin-top:5px; display:block; width:100%;">
+    Winter
+</h5>
+<div id="winter" style="flex-direction:row; justify-content:center; align-items:flex-start; gap:10px; flex-wrap:wrap;">
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/New%20Years%20Hat.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'New Years Hat', scale: 0.35, top: '61%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+  <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+ New Years<br>Hat
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Santa.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Santa', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Santa</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Tree%20w_%20Star%20Lime.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Tree w/ Star - Lime', scale: 0.35, top: '63.5%', left: '50.2%' })"
+         style="width:65px; cursor:pointer;">
+  <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:76px;
+">
+ Tree w/ Star -<br>Lime
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Tree%20w_%20Star%20Dark%20Green.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Tree w/ Star - Dark Green', scale: 0.35, top: '63.5%', left: '50.2%' })"
+         style="width:65px; cursor:pointer;">
+  <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:76px;
+">
+ Tree w/ Star -<br>Dark Green
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Tree.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Snowy Tree', scale: 0.35, top: '63%', left: '50.4%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Snowy Tree</div>
+  </div>
+<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Ornament%20Red.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Ornament - Red', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+  <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+ Ornament -<br>Red
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Ornament%20Blue.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Ornament - Blue', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+  <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+ Ornament -<br>Blue
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Ornament%20Red%20%26%20Green.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Ornament - Red & Green', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+  <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+ Ornament -<br>Red & Green
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Present%20Red%20%26%20Green.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Present - Red & Green', scale: 0.35, top: '62.5%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+<div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Present -<br>Red & Green
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Present%20Lime%20%26%20Red.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Present - Lime & Red', scale: 0.35, top: '62.5%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+<div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+  Present -<br>Lime & Red
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Elf%20Hat.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Elf Hat', scale: 0.35, top: '65%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Elf Hat</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Stocking%20Blue.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Stocking - Blue', scale: 0.35, top: '63.5%', left: '53.7%' })"
+         style="width:65px; cursor:pointer;">
+   <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+ Stocking -<br>Blue
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Stocking%20Red.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Stocking - Red', scale: 0.35, top: '63.5%', left: '53.2%' })"
+         style="width:65px; cursor:pointer;">
+   <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+ Stocking -<br>Red
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Dove.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Dove', scale: 0.35, top: '63.5%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Dove</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Gnome%201.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Gnome 1', scale: 0.35, top: '62.8%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Gnome 1</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Gnome%202.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Gnome 2', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Gnome 2</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Gnome%203.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Gnome 3', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Gnome 3</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Snowflake.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Snowflake', scale: 0.35, top: '63%', left: '50.7%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Snowflake</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Snowman.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Snowman', scale: 0.35, top: '62%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Snowman</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Reindeer.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Reindeer', scale: 0.35, top: '64.5%', left: '51.5%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Reindeer</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Reindeer%20Rudolph.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Reindeer Rudolph', scale: 0.35, top: '64.5%', left: '51.5%' })"
+         style="width:65px; cursor:pointer;">
+  <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+ Reindeer<br>Rudolph
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Nutcracker.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Nutcracker', scale: 0.35, top: '64%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Nutcracker</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Gingerbread.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Gingerbread', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Gingerbread</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Jack%20w_%20Hat.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Jack w/ Hat', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+   <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+ Jack<br>w/ Hat
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Grinch.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Grinch', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Grinch</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Tree%20Cake.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Tree Cake', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Tree Cake</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Cardinal.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Cardinal', scale: 0.35, top: '60%', left: '47.5%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Cardinal</div>
+   </div>
+
+</div>
+
+<!-- SPORTS -->
+<h5 onclick="toggleSection('sports', this)"
+    data-title="Sports"
+    style="cursor:pointer;font-size:18px;font-weight:500;margin-top:5px; display:block; width:100%;">
+    Sports
+</h5>
+<div id="sports" style="justify-content:center;gap:10px;flex-wrap:wrap;">
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Softball%20V1.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Softball V1', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Softball V1</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Softball%20V2.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Softball V2', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Softball V2</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Baseball.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Baseball', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Baseball</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Baseball%20Love%20Heart.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Baseball - Heart', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+   <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+ Baseball -<br>Heart
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Soccer%20Ball.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Soccer Ball', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+   <div style="
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  max-width:75px;
+">
+ Soccer<br>Ball
+</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Golf.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Golf', scale: 0.35, top: '65%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Golf</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+    <img src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Volleyball.png/:/rs=w:364,cg:true,m"
+         onclick="setAttachment(this.src, { name: 'Volleyball', scale: 0.35, top: '63%', left: '51%' })"
+         style="width:65px; cursor:pointer;">
+    <div style="font-size:13px; font-weight:600;">Volleyball</div>
+  </div>
+
+</div>
+
+<script>
+// ---------------------------
+// BACKER & ATTACHMENT LOGIC
+// ---------------------------
+function sendHeightToParent() {
+  const height = document.body.scrollHeight;
+  window.parent.postMessage({
+    type: "resize-iframe",
+    height: height
+  }, "*");
+}
+
+// Run on load
+window.addEventListener("load", sendHeightToParent);
+
+// Run whenever accordion changes
+document.addEventListener("click", function() {
+  setTimeout(sendHeightToParent, 150);
+});
+function setBacker(src, name) {
+  document.getElementById('backerPreview').src = src;
+  document.getElementById('backerName').textContent = name;
+
+adjustOpenAccordions();
+
+  // Auto-scroll on mobile
+  scrollToBacker();
+}
+function scrollToBacker() {
+  // Only scroll on mobile
+  if (window.innerWidth <= 768) { // match your mobile breakpoint
+    const preview = document.getElementById('previewArea');
+    if (preview) {
+      preview.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
+  }
+}
+
+function setAttachment(src, options = {}) {
+  const img = document.getElementById('attachmentPreview');
+  const backer = document.getElementById('backerPreview');
+
+ adjustOpenAccordions();  
+
+  img.src = src;
+  img.style.position = "absolute";
+
+  // Default top/left percentages
+  const top  = options.top || "65%";
+  const left = options.left || "51%";
+
+  img.style.top = top;
+  img.style.left = left;
+  img.style.transform = "translate(-50%, -50%)";
+
+  // Set width proportional to backer width
+  const backerWidth = backer.clientWidth;
+  const scaleFactor = options.scale || 0.3;
+  img.style.width = (backerWidth * scaleFactor) + "px";
+  img.style.height = "auto";
+
+  document.getElementById('attachmentName').textContent = options.name || "None";
+
+  // Smooth scroll to preview
+  const preview = document.getElementById('previewArea');
+  if (preview) {
+    preview.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
+}
+
+// ---------------------------
+// ACCORDION TOGGLE LOGIC
+// ---------------------------
+function adjustOpenAccordions() {
+  document.querySelectorAll(".open").forEach(section => {
+    section.style.maxHeight = section.scrollHeight + "px";
+  });
+}
+function toggleSection(id, header) {
+  const section = document.getElementById(id);
+  const isOpen = section.classList.contains("open");
+
+  if (isOpen) {
+    section.style.maxHeight = "0px";
+    section.classList.remove("open");
+  } else {
+    section.style.maxHeight = section.scrollHeight + "px";
+    section.classList.add("open");
+  }
+
+  // Update triangles for all headers
+  document.querySelectorAll("h5[data-title]").forEach(h => {
+    const secId = h.getAttribute("onclick").match(/'([^']+)'/)[1];
+    const sec = document.getElementById(secId);
+    h.innerHTML = (sec.classList.contains("open") ? "▼ " : "▶ ") + h.dataset.title;
+  });
+}
+
+// ---------------------------
+// INITIALIZATION ON PAGE LOAD
+// ---------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  // Open "everyday" by default
+  const defaultSection = document.getElementById("everyday");
+  defaultSection.classList.add("open");
+  defaultSection.style.maxHeight = defaultSection.scrollHeight + "px";
+
+  // Initialize triangles for all headers
+  document.querySelectorAll("h5[data-title]").forEach(header => {
+    const id = header.getAttribute("onclick").match(/'([^']+)'/)[1];
+    const section = document.getElementById(id);
+    header.innerHTML = (section.classList.contains("open") ? "▼ " : "▶ ") + header.dataset.title;
+  });
+});
+</script>
