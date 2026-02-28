@@ -1438,10 +1438,10 @@ Choose an Attachment
 
 <script>
 function sendHeightToParent() {
-  const height = document.documentElement.scrollHeight;
+  const height = document.body.getBoundingClientRect().height;
   window.parent.postMessage({
     type: "resize-iframe",
-    height: height
+    height: Math.ceil(height)
   }, "*");
 }
 
