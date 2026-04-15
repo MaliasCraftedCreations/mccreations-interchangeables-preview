@@ -2153,11 +2153,6 @@ document.addEventListener("DOMContentLoaded", () => {
 let backers = [];
 let attachments = [];
 
-function addToOrder(itemName) {
-  order.push(itemName);
-  updateOrderDisplay();
-}
-
 function removeFromOrder(index) {
   if (index < backers.length) {
     backers.splice(index, 1);
