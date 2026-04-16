@@ -2150,22 +2150,48 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script>
+console.log("cart script loaded");
+
+// GLOBAL STATE
 let backers = [];
 let attachments = [];
 
+// ADD FUNCTIONS
+function addSelectedBacker() {
+  const name = document.getElementById("backerName").textContent;
+  if (name && name !== "None") {
+    backers.push(name);
+    updateOrderDisplay();
+  }
+}
+
+function addSelectedAttachment() {
+  const name = document.getElementById("attachmentName").textContent;
+  if (name && name !== "None") {
+    attachments.push(name);
+    updateOrderDisplay();
+  }
+}
+
+// REMOVE
 function removeFromOrder(index) {
   if (index < backers.length) {
     backers.splice(index, 1);
   } else {
     attachments.splice(index - backers.length, 1);
   }
-
   updateOrderDisplay();
 }
 
+// DISPLAY
 function updateOrderDisplay() {
   const box = document.getElementById("orderBox");
   const list = document.getElementById("orderList");
+
+  if (!box || !list) {
+    console.log("order elements missing");
+    return;
+  }
 
   list.innerHTML = "";
 
@@ -2177,17 +2203,9 @@ function updateOrderDisplay() {
   combined.forEach((item, index) => {
     const li = document.createElement("li");
 
-    li.style.display = "flex";
-    li.style.justifyContent = "space-between";
-    li.style.alignItems = "center";
-    li.style.marginBottom = "4px";
-
     li.innerHTML = `
       <span>${item}</span>
-      <span onclick="removeFromOrder(${index})" 
-            style="cursor:pointer;font-weight:bold;margin-left:10px;">
-        ✕
-      </span>
+      <span onclick="removeFromOrder(${index})" style="cursor:pointer;">✕</span>
     `;
 
     list.appendChild(li);
@@ -2195,60 +2213,18 @@ function updateOrderDisplay() {
 
   box.style.display = combined.length > 0 ? "block" : "none";
 }
-</script>
 
-<script>
-function addSelectedBacker() {
-  const name = document.getElementById("backerName").textContent;
-
-  if (name && name !== "None") {
-    backers.push(name);
-    updateOrderDisplay();
-  }
-}
-
-function addSelectedAttachment() {
-  const name = document.getElementById("attachmentName").textContent;
-
-  if (name && name !== "None") {
-    attachments.push(name);
-    updateOrderDisplay();
-  }
-}
-</script>
-
-<script>
+// EXPORT TEXT
 function getOrderText() {
-  const allItems = [
+  return [
     ...backers.map(item => "Backer: " + item),
     ...attachments.map(item => "Attachment: " + item)
-  ];
-
-  return allItems.map(item => "- " + item).join("\n");
+  ].map(item => "- " + item).join("\n");
 }
 
+// COPY
 function copyOrderOnly() {
-const text = `Hi!   
-
-My name is ________.
-
-I’m interested in placing an order!  
-
-Here’s what I picked out:
-${getOrderText()}
-
-(Feel free to add any additional details or questions here!)  
-
-Thank you! 🤍`;
-  navigator.clipboard.writeText(text).then(() => {
-    showToast("Copied! Paste into your message 💬");
-  });
-}
-
-function sendOrderEmail() {
-  const subject = encodeURIComponent("Interchangeable Order");
-
-  const body = encodeURIComponent(`Hi!   
+  const text = `Hi! 😊  
 
 My name is ________.
 
@@ -2257,19 +2233,45 @@ I’m interested in placing an order!
 Here’s what I picked out:
 ${getOrderText()}
 
-(Add any details, color requests, or questions here)
+(Add any details or questions here)
+
+Thank you! 🤍`;
+
+  navigator.clipboard.writeText(text).then(() => {
+    showToast("Copied! Paste into your message 💬");
+  });
+}
+
+// EMAIL
+function sendOrderEmail() {
+  const subject = encodeURIComponent("Interchangeable Order");
+
+  const body = encodeURIComponent(`Hi! 😊  
+
+My name is ________.
+
+I’m interested in placing an order!
+
+Here’s what I picked out:
+${getOrderText()}
+
+(Add any details or questions here)
 
 Thank you! 🤍`);
 
-  window.location.href = "mailto:maliascraftedcreations@gmail.com?subject=" + subject + "&body=" + body;
+  window.location.href =
+    "mailto:maliascraftedcreations@gmail.com?subject=" +
+    subject +
+    "&body=" +
+    body;
 }
 
+// TOAST
 function showToast(message) {
   const toast = document.getElementById("toastMessage");
   if (!toast) return;
 
   toast.textContent = message;
-
   toast.style.opacity = "1";
   toast.style.transform = "translateX(-50%) translateY(0)";
 
