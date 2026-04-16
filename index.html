@@ -2200,15 +2200,6 @@ document.addEventListener("DOMContentLoaded", () => {
 let backers = [];
 let attachments = [];
 
-function addToOrder(itemName, type) {
-  if (type === "backer") {
-    backers.push(itemName);
-  } else {
-    attachments.push(itemName);
-  }
-  updateOrderDisplay();
-}
-
 function removeFromOrder(index) {
   if (index < backers.length) {
     backers.splice(index, 1);
