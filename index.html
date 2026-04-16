@@ -2275,10 +2275,7 @@ function getOrderText() {
 }
 
 function copyOrderOnly() {
-
- console.log("copy clicked");
- 
- const text = `Hi!   
+  const text = `Hi!   
 
 My name is ________.
 
@@ -2290,11 +2287,44 @@ ${getOrderText()}
 (Feel free to add any additional details or questions here!)  
 
 Thank you! 🤍`;
-  navigator.clipboard.writeText(text).then(() => {
-    showToast("Copied! Paste into your message 💬");
-  });
+
+  // ✅ Try modern clipboard first
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        showToast("Copied! Paste into your message 💬");
+      })
+      .catch(() => {
+        fallbackCopy(text);
+      });
+  } else {
+    fallbackCopy(text);
+  }
 }
 
+// 🔁 Fallback method (works in iframes)
+function fallbackCopy(text) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+
+  // Prevent scrolling
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+
+  document.body.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+
+  try {
+    document.execCommand("copy");
+    showToast("Copied! Paste into your message 💬");
+  } catch (err) {
+    showToast("Copy failed — please copy manually");
+  }
+
+  document.body.removeChild(textarea);
+}
+ 
 function sendOrderEmail() {
   const subject = encodeURIComponent("Interchangeable Order");
 
