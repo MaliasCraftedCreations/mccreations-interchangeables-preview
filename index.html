@@ -2307,12 +2307,18 @@ function fallbackCopy(text) {
   const textarea = document.createElement("textarea");
   textarea.value = text;
 
-  // Prevent scrolling
+  // ✅ Prevent scroll jump
   textarea.style.position = "fixed";
+  textarea.style.top = "0";
+  textarea.style.left = "0";
+  textarea.style.width = "1px";
+  textarea.style.height = "1px";
   textarea.style.opacity = "0";
+  textarea.style.pointerEvents = "none";
 
   document.body.appendChild(textarea);
-  textarea.focus();
+
+  textarea.focus({ preventScroll: true }); // 👈 KEY FIX
   textarea.select();
 
   try {
