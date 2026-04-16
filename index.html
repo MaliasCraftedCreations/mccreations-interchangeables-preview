@@ -2058,6 +2058,25 @@ Choose an Attachment
   </div>
 </div>
 
+ <div id="toastMessage" style="
+  position:fixed !important;
+  bottom:20px !important;
+  left:50% !important;
+  transform:translateX(-50%) translateY(20px);
+  background:#c89f8d;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:20px;
+  font-size:14px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.2);
+  opacity:0;
+  pointer-events:none;
+  transition:all 0.3s ease;
+  z-index:999999 !important;
+">
+  Copied!
+</div>
+ 
 <script>
 function sendHeightToParent() {
   const height = document.body.getBoundingClientRect().height;
