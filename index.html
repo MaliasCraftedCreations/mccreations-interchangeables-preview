@@ -2058,7 +2058,7 @@ Choose an Attachment
   </div>
 </div>
 
-<div id="toastMessage" style="
+ <div id="toastMessage" style="
   position:fixed !important;
   bottom:20px !important;
   left:50% !important;
@@ -2076,7 +2076,7 @@ Choose an Attachment
 ">
   Copied!
 </div>
-
+ 
 <script>
 function sendHeightToParent() {
   const height = document.body.getBoundingClientRect().height;
@@ -2200,8 +2200,12 @@ document.addEventListener("DOMContentLoaded", () => {
 let backers = [];
 let attachments = [];
 
-function addToOrder(itemName) {
-  order.push(itemName);
+function addToOrder(itemName, type) {
+  if (type === "backer") {
+    backers.push(itemName);
+  } else {
+    attachments.push(itemName);
+  }
   updateOrderDisplay();
 }
 
