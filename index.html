@@ -53,14 +53,6 @@ font-weight:600;
   </p>
 
  <style>
-
-  #previewArea,
-#orderBox,
-#noticeWrapper,
-#videoBox {
-  touch-action: pan-y;
-}
-  
   .mobile-break {
   display: none;
 }
@@ -69,6 +61,18 @@ font-weight:600;
   .mobile-break {
     display: block;
   }
+}
+  </style>
+
+ <style>
+  /* Prevent inner scroll trapping on mobile */
+#previewArea,
+#previewArea * {
+  touch-action: pan-y !important;
+}
+
+#previewArea {
+  overscroll-behavior: contain;
 }
   </style>
 
