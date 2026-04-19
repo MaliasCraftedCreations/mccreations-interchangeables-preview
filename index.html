@@ -65,14 +65,15 @@ font-weight:600;
   </style>
 
  <style>
-  /* Prevent inner scroll trapping on mobile */
+/* 🚫 Disable ALL internal scrolling */
 #previewArea,
+#orderBox,
+#noticeWrapper,
+#videoBox,
 #previewArea * {
-  touch-action: pan-y !important;
-}
-
-#previewArea {
-  overscroll-behavior: contain;
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
 }
   </style>
 
