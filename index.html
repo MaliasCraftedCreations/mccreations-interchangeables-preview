@@ -2116,16 +2116,27 @@ function setBacker(src, name) {
 
 adjustOpenAccordions();
 
-  // Auto-scroll on mobile
-  jumpToPreview();
+// Auto-scroll on mobile
+scrollToBacker();
 }
 function scrollToBacker() {
   const preview = document.getElementById('previewArea');
   if (!preview) return;
 
-  const y = preview.getBoundingClientRect().top + window.scrollY - 100;
+  // find the scrollable parent container
+  let parent = preview.parentElement;
 
-  window.scrollTo({
+  while (parent) {
+    const hasScroll = parent.scrollHeight > parent.clientHeight;
+    if (hasScroll) break;
+    parent = parent.parentElement;
+  }
+
+  if (!parent) return;
+
+  const y = preview.offsetTop - 20;
+
+  parent.scrollTo({
     top: y,
     behavior: "smooth"
   });
