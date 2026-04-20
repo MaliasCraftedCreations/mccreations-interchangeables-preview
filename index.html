@@ -126,7 +126,7 @@ box-shadow:0 2px 6px rgba(0,0,0,0.15);
     Interchangeables Preview
   </h3>
   <!-- PREVIEW AREA -->
-<div id="previewArea"     style="position:relative;width:100%;max-width:320px;aspect-ratio:1/1;margin:0 auto 30px auto;">
+<div id="previewArea" name="previewArea" style="position:relative;width:100%;max-width:320px;aspect-ratio:1/1;margin:0 auto 30px auto;">
     <img id="backerPreview"
          src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/1_Wide%20Stripe.png/:/rs=w:740,cg:true,m"
          style="width:100%;height:auto;">
@@ -2091,7 +2091,7 @@ function setBacker(src, name) {
 adjustOpenAccordions();
 
   // Auto-scroll on mobile
-  scrollToBacker();
+  jumpToPreview();
 }
 function scrollToBacker() {
   const preview = document.getElementById('previewArea');
@@ -2114,6 +2114,16 @@ function scrollToBacker() {
       });
     }
   }, 150);
+}
+ function jumpToPreview() {
+  if (window.innerWidth <= 768) {
+    window.location.hash = "previewArea";
+
+    // small offset fix (so it’s not glued to top)
+    setTimeout(() => {
+      window.scrollBy(0, -100);
+    }, 50);
+  }
 }
 
 function setAttachment(src, options = {}) {
@@ -2141,14 +2151,7 @@ function setAttachment(src, options = {}) {
 
   document.getElementById('attachmentName').textContent = options.name || "None";
 
-  // Smooth scroll to preview
-  const preview = document.getElementById('previewArea');
-  if (preview) {
-    preview.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
-  }
+jumpToPreview();
 }
 
 // ---------------------------
