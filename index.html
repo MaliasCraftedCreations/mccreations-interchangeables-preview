@@ -52,29 +52,6 @@ font-weight:600;
     Tap “Copy Order” below, then paste it into your message to get started!
   </p>
 
- <style>
-  .mobile-break {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .mobile-break {
-    display: block;
-  }
-}
-  </style>
-
- <style>
-  /* Mobile-only side spacing for better scrolling */
-@media (max-width: 768px) {
-  .preview-wrapper {
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-  }
-}
- </style>
-
   <!-- Buttons row -->
   <div style="
     display:flex;
@@ -149,7 +126,7 @@ box-shadow:0 2px 6px rgba(0,0,0,0.15);
     Interchangeables Preview
   </h3>
   <!-- PREVIEW AREA -->
-<div id="previewArea" tabindex="-1"     style="position:relative;width:100%;max-width:320px;aspect-ratio:1/1;margin:0 auto 30px auto;">
+<div id="previewArea"     style="position:relative;width:100%;max-width:320px;aspect-ratio:1/1;margin:0 auto 30px auto;">
     <img id="backerPreview"
          src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/1_Wide%20Stripe.png/:/rs=w:740,cg:true,m"
          style="width:100%;height:auto;">
@@ -241,9 +218,19 @@ div,
   max-height: 0;
   transition: max-height 0.25s ease;
 }
+
+ /* Mobile-only side spacing for better scrolling */
+@media (max-width: 768px) {
+  .preview-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+}
+ 
 </style>
 
- <div style="text-align:center;margin-top:10px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+<div style="text-align:center;margin-top:10px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
 
   <button onclick="addSelectedBacker()" 
     style="
@@ -2102,20 +2089,28 @@ Choose an Attachment
  
 <script>
 function sendHeightToParent() {
-  const height = document.body.getBoundingClientRect().height;
+  const height = document.documentElement.scrollHeight;
+
   window.parent.postMessage({
     type: "resize-iframe",
-    height: Math.ceil(height)
+    height: height
   }, "*");
 }
 
-window.addEventListener("load", sendHeightToParent);
+// Run multiple times (GoDaddy needs this)
+window.addEventListener("load", () => {
+  sendHeightToParent();
+  setTimeout(sendHeightToParent, 300);
+  setTimeout(sendHeightToParent, 800);
+});
 
+// Also watch for changes (accordions, images, etc.)
 const observer = new ResizeObserver(() => {
   sendHeightToParent();
 });
 
 observer.observe(document.body);
+ 
 function setBacker(src, name) {
   document.getElementById('backerPreview').src = src;
   document.getElementById('backerName').textContent = name;
