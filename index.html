@@ -2094,15 +2094,19 @@ adjustOpenAccordions();
   scrollToBacker();
 }
 function scrollToBacker() {
-  // Only scroll on mobile
-  if (window.innerWidth <= 768) { // match your mobile breakpoint
+  if (window.innerWidth <= 768) {
     const preview = document.getElementById('previewArea');
-    if (preview) {
-      preview.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
+
+    if (!preview) return;
+
+    setTimeout(() => {
+      const y = preview.getBoundingClientRect().top + window.pageYOffset - 80;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth"
       });
-    }
+    }, 120);
   }
 }
 
