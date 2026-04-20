@@ -2155,12 +2155,13 @@ function setAttachment(src, options = {}) {
   img.style.transform = "translate(-50%, -50%)";
 
   // Set width proportional to backer width
- const backerWidth = backer.getBoundingClientRect().width;
- if (!backerWidth) return;
-  const scaleFactor = options.scale || 0.3;
-  img.style.width = (backerWidth * scaleFactor) + "px";
-  img.style.height = "auto";
+const rect = backer.getBoundingClientRect();
+const backerWidth = rect.width || backer.offsetWidth || 200; // 👈 fallback
 
+const scaleFactor = options.scale || 0.3;
+img.style.width = (backerWidth * scaleFactor) + "px";
+img.style.height = "auto";
+  
   document.getElementById('attachmentName').textContent = options.name || "None";
 
   // Smooth scroll to preview
