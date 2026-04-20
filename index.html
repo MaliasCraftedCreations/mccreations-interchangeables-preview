@@ -2068,79 +2068,54 @@ Choose an Attachment
   </div>
 </div>
 
- <div id="toastMessage" style="
-  position:fixed !important;
-  bottom:20px !important;
-  left:50% !important;
-  transform:translateX(-50%) translateY(20px);
-  background:#c89f8d;
-  color:#fff;
-  padding:12px 18px;
-  border-radius:20px;
-  font-size:14px;
-  box-shadow:0 6px 16px rgba(0,0,0,0.2);
-  opacity:0;
-  pointer-events:none;
-  transition:all 0.3s ease;
-  z-index:999999 !important;
-">
-  Copied!
-</div>
- 
 <script>
 function sendHeightToParent() {
-  const height = document.documentElement.scrollHeight;
-
+  const height = document.body.getBoundingClientRect().height;
   window.parent.postMessage({
     type: "resize-iframe",
-    height: height
+    height: Math.ceil(height)
   }, "*");
 }
 
-// Run multiple times (GoDaddy needs this)
-window.addEventListener("load", () => {
-  sendHeightToParent();
-  setTimeout(sendHeightToParent, 300);
-  setTimeout(sendHeightToParent, 800);
-});
+window.addEventListener("load", sendHeightToParent);
 
-// Also watch for changes (accordions, images, etc.)
 const observer = new ResizeObserver(() => {
   sendHeightToParent();
 });
 
 observer.observe(document.body);
- 
 function setBacker(src, name) {
   document.getElementById('backerPreview').src = src;
   document.getElementById('backerName').textContent = name;
 
-  adjustOpenAccordions();
+adjustOpenAccordions();
+
+  // Auto-scroll on mobile
+  scrollToBacker();
 }
-
 function scrollToBacker() {
-  if (window.innerWidth <= 768) {
+  // Only scroll on mobile
+  if (window.innerWidth <= 768) { // match your mobile breakpoint
     const preview = document.getElementById('previewArea');
-
     if (preview) {
-      setTimeout(() => {
-        preview.focus({ preventScroll: false });
-      }, 150);
+      preview.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
     }
   }
 }
- 
+
 function setAttachment(src, options = {}) {
   const img = document.getElementById('attachmentPreview');
   const backer = document.getElementById('backerPreview');
-  const preview = document.getElementById('previewArea');
 
-  // keep your accordion sizing working
-  adjustOpenAccordions();
+ adjustOpenAccordions();  
 
   img.src = src;
   img.style.position = "absolute";
 
+  // Default top/left percentages
   const top  = options.top || "65%";
   const left = options.left || "51%";
 
@@ -2148,30 +2123,23 @@ function setAttachment(src, options = {}) {
   img.style.left = left;
   img.style.transform = "translate(-50%, -50%)";
 
-  // ✅ SIMPLE + SAFE (no aggressive logic)
-  const backerWidth = backer.offsetWidth || 200;
+  // Set width proportional to backer width
+  const backerWidth = backer.clientWidth;
   const scaleFactor = options.scale || 0.3;
-
   img.style.width = (backerWidth * scaleFactor) + "px";
   img.style.height = "auto";
 
   document.getElementById('attachmentName').textContent = options.name || "None";
 
-  // ✅ REMOVE scroll logic for now (we’ll re-add later cleanly)
-}
-
   // Smooth scroll to preview
   const preview = document.getElementById('previewArea');
   if (preview) {
-  setTimeout(() => {
-  const y = preview.getBoundingClientRect().top + window.pageYOffset - 80;
-
-  window.scrollTo(0, y);
-
-  setTimeout(() => {
-  preview.focus({ preventScroll: false });
-}, 150);
-   
+    preview.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
+}
 
 // ---------------------------
 // ACCORDION TOGGLE LOGIC
@@ -2298,7 +2266,7 @@ function getOrderText() {
 }
 
 function copyOrderOnly() {
-  const text = `Hi!   
+const text = `Hi!   
 
 My name is ________.
 
@@ -2310,50 +2278,11 @@ ${getOrderText()}
 (Feel free to add any additional details or questions here!)  
 
 Thank you! 🤍`;
-
-  // ✅ Try modern clipboard first
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text)
-      .then(() => {
-        showToast("Copied! Paste into your message 💬");
-      })
-      .catch(() => {
-        fallbackCopy(text);
-      });
-  } else {
-    fallbackCopy(text);
-  }
-}
-
-// 🔁 Fallback method (works in iframes)
-function fallbackCopy(text) {
-  const textarea = document.createElement("textarea");
-  textarea.value = text;
-
-  // ✅ Prevent scroll jump
-  textarea.style.position = "fixed";
-  textarea.style.top = "0";
-  textarea.style.left = "0";
-  textarea.style.width = "1px";
-  textarea.style.height = "1px";
-  textarea.style.opacity = "0";
-  textarea.style.pointerEvents = "none";
-
-  document.body.appendChild(textarea);
-
-  textarea.focus({ preventScroll: true }); // 👈 KEY FIX
-  textarea.select();
-
-  try {
-    document.execCommand("copy");
+  navigator.clipboard.writeText(text).then(() => {
     showToast("Copied! Paste into your message 💬");
-  } catch (err) {
-    showToast("Copy failed — please copy manually");
-  }
-
-  document.body.removeChild(textarea);
+  });
 }
- 
+
 function sendOrderEmail() {
   const subject = encodeURIComponent("Interchangeable Order");
 
@@ -2388,3 +2317,4 @@ function showToast(message) {
   }, 2000);
 }
 </script>
+
