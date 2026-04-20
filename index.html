@@ -228,10 +228,11 @@ div,
   }
 }
 
- #backToPreviewBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 16px;
+#backToPreviewBtn {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 16px !important;
+  z-index: 999999 !important;
 
   background: #a97c6b;
   color: #fff;
@@ -244,7 +245,6 @@ div,
   box-shadow: 0 6px 16px rgba(0,0,0,0.2);
   cursor: pointer;
 
-  z-index: 9999;
   opacity: 0.9;
 }
 
