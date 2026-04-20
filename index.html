@@ -227,7 +227,33 @@ div,
     box-sizing: border-box;
   }
 }
- 
+
+ #backToPreviewBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 16px;
+
+  background: #a97c6b;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+
+  padding: 10px 14px;
+  font-size: 13px;
+
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  cursor: pointer;
+
+  z-index: 9999;
+  opacity: 0.9;
+}
+
+/* Optional: slightly hide when not needed */
+@media (min-width: 769px) {
+  #backToPreviewBtn {
+    display: none;
+  }
+}
 </style>
 
 <div style="text-align:center;margin-top:10px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
@@ -2097,24 +2123,14 @@ function scrollToBacker() {
   const preview = document.getElementById('previewArea');
   if (!preview) return;
 
-  setTimeout(() => {
-    const rect = preview.getBoundingClientRect();
+  const y = preview.getBoundingClientRect().top + window.scrollY - 100;
 
-    // Try to scroll parent page (GoDaddy container)
-    if (window.parent && window.parent !== window) {
-      window.parent.postMessage({
-        type: "scroll-to-preview",
-        offset: rect.top - 120
-      }, "*");
-    } else {
-      // fallback if not inside iframe
-      window.scrollTo({
-        top: rect.top + window.pageYOffset - 120,
-        behavior: "smooth"
-      });
-    }
-  }, 150);
+  window.scrollTo({
+    top: y,
+    behavior: "smooth"
+  });
 }
+ 
  function jumpToPreview() {
   if (window.innerWidth <= 768) {
     window.location.hash = "previewArea";
@@ -2330,4 +2346,8 @@ function showToast(message) {
   }, 2000);
 }
 </script>
+
+ <button id="backToPreviewBtn" onclick="scrollToBacker()">
+  ⬆️ Preview
+</button>
 
