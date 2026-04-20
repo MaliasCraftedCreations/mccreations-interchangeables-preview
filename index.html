@@ -2170,10 +2170,14 @@ function setAttachment(src, options = {}) {
   // Smooth scroll to preview
   const preview = document.getElementById('previewArea');
   if (preview) {
-    preview.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
+    setTimeout(() => {
+  const y = preview.getBoundingClientRect().top + window.pageYOffset - 80;
+
+  window.scrollTo({
+    top: y,
+    behavior: "smooth"
+  });
+}, 180);
   }
 }
 
