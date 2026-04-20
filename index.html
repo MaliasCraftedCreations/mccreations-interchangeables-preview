@@ -2130,18 +2130,22 @@ function scrollToBacker() {
     const preview = document.getElementById('previewArea');
 
     if (preview) {
-      setTimeout(() => {
-        const y = preview.getBoundingClientRect().top + window.pageYOffset - 80;
+      const y = preview.getBoundingClientRect().top + window.pageYOffset - 80;
 
+      // First attempt
+      window.scrollTo(0, y);
+
+      // Second forced attempt (mobile fix)
+      setTimeout(() => {
         window.scrollTo({
           top: y,
           behavior: 'smooth'
         });
-      }, 180); // 👈 key for mobile
+      }, 100);
     }
   }
 }
-
+ 
 function setAttachment(src, options = {}) {
   const img = document.getElementById('attachmentPreview');
   const backer = document.getElementById('backerPreview');
@@ -2170,14 +2174,18 @@ function setAttachment(src, options = {}) {
   // Smooth scroll to preview
   const preview = document.getElementById('previewArea');
   if (preview) {
-    setTimeout(() => {
+  setTimeout(() => {
   const y = preview.getBoundingClientRect().top + window.pageYOffset - 80;
 
-  window.scrollTo({
-    top: y,
-    behavior: "smooth"
-  });
-}, 180);
+  window.scrollTo(0, y);
+
+  setTimeout(() => {
+    window.scrollTo({
+      top: y,
+      behavior: 'smooth'
+    });
+  }, 100);
+}, 120);
   }
 }
 
