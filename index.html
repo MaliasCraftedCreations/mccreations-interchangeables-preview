@@ -2120,11 +2120,9 @@ function setBacker(src, name) {
   document.getElementById('backerPreview').src = src;
   document.getElementById('backerName').textContent = name;
 
-adjustOpenAccordions();
-
-  // Auto-scroll on mobile
-  scrollToBacker();
+  adjustOpenAccordions();
 }
+
 function scrollToBacker() {
   if (window.innerWidth <= 768) {
     const preview = document.getElementById('previewArea');
@@ -2140,13 +2138,14 @@ function scrollToBacker() {
 function setAttachment(src, options = {}) {
   const img = document.getElementById('attachmentPreview');
   const backer = document.getElementById('backerPreview');
+  const preview = document.getElementById('previewArea');
 
- adjustOpenAccordions();  
+  // keep your accordion sizing working
+  adjustOpenAccordions();
 
   img.src = src;
   img.style.position = "absolute";
 
-  // Default top/left percentages
   const top  = options.top || "65%";
   const left = options.left || "51%";
 
@@ -2154,15 +2153,17 @@ function setAttachment(src, options = {}) {
   img.style.left = left;
   img.style.transform = "translate(-50%, -50%)";
 
-  // Set width proportional to backer width
-const rect = backer.getBoundingClientRect();
-const backerWidth = rect.width || backer.offsetWidth || 200; // 👈 fallback
+  // ✅ SIMPLE + SAFE (no aggressive logic)
+  const backerWidth = backer.offsetWidth || 200;
+  const scaleFactor = options.scale || 0.3;
 
-const scaleFactor = options.scale || 0.3;
-img.style.width = (backerWidth * scaleFactor) + "px";
-img.style.height = "auto";
-  
+  img.style.width = (backerWidth * scaleFactor) + "px";
+  img.style.height = "auto";
+
   document.getElementById('attachmentName').textContent = options.name || "None";
+
+  // ✅ REMOVE scroll logic for now (we’ll re-add later cleanly)
+}
 
   // Smooth scroll to preview
   const preview = document.getElementById('previewArea');
