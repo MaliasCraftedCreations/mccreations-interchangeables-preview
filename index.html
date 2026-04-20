@@ -90,11 +90,11 @@ font-weight:600;
 
   <!-- Social links -->
   <div style="font-size:12px;">
-    <a href="https://www.instagram.com/maliascraftedcreations/" target="_blank" style="color:#a97c6b;">
+    <a href="https://www.instagram.com/maliascraftedcreations/" target="_blank" style="color:#4a2f27;">
       Instagram
     </a>
     &nbsp;•&nbsp;
-    <a href="https://www.facebook.com/share/18Pufov4T5/?mibextid=wwXIfr" target="_blank" style="color:#a97c6b;">
+    <a href="https://www.facebook.com/share/18Pufov4T5/?mibextid=wwXIfr" target="_blank" style="color:#4a2f27;">
       Facebook
     </a>
   </div>
@@ -120,13 +120,13 @@ box-shadow:0 2px 6px rgba(0,0,0,0.15);
 </div>
 </div>
 
-<div class="preview-wrapper" style="max-width:1100px;margin:0 auto;text-align:center;">
+<div style="max-width:1100px;margin:0 auto;text-align:center;">
   <!-- TITLE -->
   <h3 style="font-size:28px;font-weight:600;margin-bottom:20px;">
     Interchangeables Preview
   </h3>
   <!-- PREVIEW AREA -->
-<div id="previewArea" name="previewArea" style="position:relative;width:100%;max-width:320px;aspect-ratio:1/1;margin:0 auto 30px auto;">
+<div id="previewArea"     style="position:relative;width:100%;max-width:320px;aspect-ratio:1/1;margin:0 auto 30px auto;">
     <img id="backerPreview"
          src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/1_Wide%20Stripe.png/:/rs=w:740,cg:true,m"
          style="width:100%;height:auto;">
@@ -227,34 +227,8 @@ div,
     box-sizing: border-box;
   }
 }
-
-#backToPreviewBtn {
-  position: fixed !important;
-  bottom: 20px !important;
-  right: 16px !important;
-  z-index: 999999 !important;
-
-  background: #a97c6b;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-
-  padding: 10px 14px;
-  font-size: 13px;
-
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-  cursor: pointer;
-
-  opacity: 0.9;
-}
-
-/* Optional: slightly hide when not needed */
-@media (min-width: 769px) {
-  #backToPreviewBtn {
-    display: none;
-  }
-}
 </style>
+
 
 <div style="text-align:center;margin-top:10px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
 
@@ -2116,40 +2090,19 @@ function setBacker(src, name) {
 
 adjustOpenAccordions();
 
-// Auto-scroll on mobile
-scrollToBacker();
+  // Auto-scroll on mobile
+  scrollToBacker();
 }
 function scrollToBacker() {
-  const preview = document.getElementById('previewArea');
-  if (!preview) return;
-
-  // find the scrollable parent container
-  let parent = preview.parentElement;
-
-  while (parent) {
-    const hasScroll = parent.scrollHeight > parent.clientHeight;
-    if (hasScroll) break;
-    parent = parent.parentElement;
-  }
-
-  if (!parent) return;
-
-  const y = preview.offsetTop - 20;
-
-  parent.scrollTo({
-    top: y,
-    behavior: "smooth"
-  });
-}
- 
- function jumpToPreview() {
-  if (window.innerWidth <= 768) {
-    window.location.hash = "previewArea";
-
-    // small offset fix (so it’s not glued to top)
-    setTimeout(() => {
-      window.scrollBy(0, -100);
-    }, 50);
+  // Only scroll on mobile
+  if (window.innerWidth <= 768) { // match your mobile breakpoint
+    const preview = document.getElementById('previewArea');
+    if (preview) {
+      preview.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
   }
 }
 
@@ -2178,7 +2131,14 @@ function setAttachment(src, options = {}) {
 
   document.getElementById('attachmentName').textContent = options.name || "None";
 
-jumpToPreview();
+  // Smooth scroll to preview
+  const preview = document.getElementById('previewArea');
+  if (preview) {
+    preview.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
 }
 
 // ---------------------------
