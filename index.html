@@ -65,25 +65,15 @@ font-weight:600;
   </style>
 
  <style>
-/* 🚫 Disable ALL internal scrolling */
-#previewArea,
-#orderBox,
-#noticeWrapper,
-#videoBox,
-#previewArea * {
-  overflow: visible !important;
-  max-height: none !important;
-  height: auto !important;
+  /* Mobile-only side spacing for better scrolling */
+@media (max-width: 768px) {
+  .preview-wrapper {
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+  }
 }
-  /* Override GoDaddy container scroll trap */
-section,
-div[class*="html"],
-div[class*="custom"],
-div[data-section] {
-  overflow: visible !important;
-  max-height: none !important;
-}
-  </style>
+ </style>
 
   <!-- Buttons row -->
   <div style="
@@ -153,7 +143,7 @@ box-shadow:0 2px 6px rgba(0,0,0,0.15);
 </div>
 </div>
 
-<div style="max-width:1100px;margin:0 auto;text-align:center;">
+<div class="preview-wrapper" style="max-width:1100px;margin:0 auto;text-align:center;">
   <!-- TITLE -->
   <h3 style="font-size:28px;font-weight:600;margin-bottom:20px;">
     Interchangeables Preview
