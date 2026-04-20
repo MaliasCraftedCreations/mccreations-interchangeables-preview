@@ -2094,15 +2094,26 @@ adjustOpenAccordions();
   scrollToBacker();
 }
 function scrollToBacker() {
-  if (window.innerWidth <= 768) {
-    const preview = document.getElementById('previewArea');
-    if (!preview) return;
+  const preview = document.getElementById('previewArea');
+  if (!preview) return;
 
-    setTimeout(() => {
-      preview.scrollIntoView(true);
-      window.scrollBy(0, -120);
-    }, 150);
-  }
+  setTimeout(() => {
+    const rect = preview.getBoundingClientRect();
+
+    // Try to scroll parent page (GoDaddy container)
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: "scroll-to-preview",
+        offset: rect.top - 120
+      }, "*");
+    } else {
+      // fallback if not inside iframe
+      window.scrollTo({
+        top: rect.top + window.pageYOffset - 120,
+        behavior: "smooth"
+      });
+    }
+  }, 150);
 }
 
 function setAttachment(src, options = {}) {
