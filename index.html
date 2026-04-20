@@ -117,7 +117,7 @@ font-weight:600;
       Instagram
     </a>
     &nbsp;•&nbsp;
-    <a href="https://m.me/MaliasCraftedCreations" target="_blank" style="color:#a97c6b;">
+    <a href="https://www.facebook.com/share/18Pufov4T5/?mibextid=wwXIfr" target="_blank" style="color:#a97c6b;">
       Facebook
     </a>
   </div>
@@ -149,7 +149,7 @@ box-shadow:0 2px 6px rgba(0,0,0,0.15);
     Interchangeables Preview
   </h3>
   <!-- PREVIEW AREA -->
-<div id="previewArea"     style="position:relative;width:100%;max-width:320px;aspect-ratio:1/1;margin:0 auto 30px auto;">
+<div id="previewArea" tabindex="-1"     style="position:relative;width:100%;max-width:320px;aspect-ratio:1/1;margin:0 auto 30px auto;">
     <img id="backerPreview"
          src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/1_Wide%20Stripe.png/:/rs=w:740,cg:true,m"
          style="width:100%;height:auto;">
@@ -2130,18 +2130,9 @@ function scrollToBacker() {
     const preview = document.getElementById('previewArea');
 
     if (preview) {
-      const y = preview.getBoundingClientRect().top + window.pageYOffset - 80;
-
-      // First attempt
-      window.scrollTo(0, y);
-
-      // Second forced attempt (mobile fix)
       setTimeout(() => {
-        window.scrollTo({
-          top: y,
-          behavior: 'smooth'
-        });
-      }, 100);
+        preview.focus({ preventScroll: false });
+      }, 150);
     }
   }
 }
@@ -2164,7 +2155,7 @@ function setAttachment(src, options = {}) {
   img.style.transform = "translate(-50%, -50%)";
 
   // Set width proportional to backer width
-  const backerWidth = backer.clientWidth;
+ const backerWidth = backer.getBoundingClientRect().width;
   const scaleFactor = options.scale || 0.3;
   img.style.width = (backerWidth * scaleFactor) + "px";
   img.style.height = "auto";
@@ -2180,14 +2171,9 @@ function setAttachment(src, options = {}) {
   window.scrollTo(0, y);
 
   setTimeout(() => {
-    window.scrollTo({
-      top: y,
-      behavior: 'smooth'
-    });
-  }, 100);
-}, 120);
-  }
-}
+  preview.focus({ preventScroll: false });
+}, 150);
+   
 
 // ---------------------------
 // ACCORDION TOGGLE LOGIC
