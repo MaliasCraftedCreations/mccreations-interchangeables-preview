@@ -2156,6 +2156,7 @@ function setAttachment(src, options = {}) {
 
   // Set width proportional to backer width
  const backerWidth = backer.getBoundingClientRect().width;
+ if (!backerWidth) return;
   const scaleFactor = options.scale || 0.3;
   img.style.width = (backerWidth * scaleFactor) + "px";
   img.style.height = "auto";
