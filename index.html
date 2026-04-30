@@ -220,20 +220,17 @@ div,
 }
 
 h5[data-title] {
+  display: inline-flex;      /* 👈 keeps it tight to text */
+  align-items: center;
   position: relative;
-  display: inline-block;
-  padding-left: 18px; 
+  padding-left: 0;           /* 👈 remove old padding */
   color: #000;
 }
 
 /* Arrow made from borders (not text) */
 h5[data-title]::before {
   content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-
+  display: inline-block;     /* 👈 back into flow */
   width: 0;
   height: 0;
 
@@ -241,12 +238,15 @@ h5[data-title]::before {
   border-bottom: 5px solid transparent;
   border-left: 7px solid #000;
 
+  margin-right: 8px;         /* 👈 THIS controls spacing now */
+  transform: translateY(1px); /* 👈 slight vertical alignment tweak */
+
   transition: transform 0.2s ease;
 }
 
 /* Rotate when open */
 h5.open::before {
-  transform: translateY(-50%) rotate(90deg);
+  transform: rotate(90deg) translateY(1px);
 }
  
  /* Mobile-only side spacing for better scrolling */
