@@ -228,42 +228,36 @@ div,
   }
 }
 
- /* Hidden by default */
-#miniPreviewBar {
+ /* Default (desktop) → hidden */
+.miniPreviewInline {
   display: none;
+  justify-content: center;
+  margin-top: 10px;
 }
 
+.miniPreviewInner {
+  position: relative;
+  width: 70px;
+}
+
+.miniBackerImg {
+  width: 100%;
+  display: block;
+}
+
+.miniAttachmentImg {
+  position: absolute;
+  top: 65%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  pointer-events: none;
+}
+
+/* 📱 MOBILE ONLY */
 @media (max-width: 768px) {
-  #miniPreviewBar {
+  .miniPreviewInline {
     display: flex;
-    position: fixed;
-    bottom: 70px; /* 👈 moves it ABOVE your thumbnails */
-    left: 50%;
-    transform: translateX(-50%);
-    gap: 6px;
-    padding: 6px 10px;
-    border-radius: 14px;
-    background: rgba(214,177,161,0.95);
-    border: 2px dashed #c89f8d;
-    z-index: 9999;
-
-    opacity: 0;
-    transition: opacity 0.25s ease;
-  }
-
-  #miniPreviewBar img {
-    width: 40px;
-    height: auto;
-    display: block;
-  }
-}
-
-  #miniAttachment {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
   }
 }
 
@@ -747,6 +741,13 @@ Choose an Attachment
   <div style="font-size:13px; font-weight:600;">Death Star</div>
 </div>
 
+ <div class="miniPreviewInline">
+  <div class="miniPreviewInner">
+    <img class="miniBackerImg" src="">
+    <img class="miniAttachmentImg" src="">
+  </div>
+</div>
+ 
 </div>
 
 <!-- SPRING -->
@@ -1217,6 +1218,13 @@ Choose an Attachment
     <div style="font-size:13px; font-weight:600;">Easter Basket</div>
   </div>
 
+ <div class="miniPreviewInline">
+  <div class="miniPreviewInner">
+    <img class="miniBackerImg" src="">
+    <img class="miniAttachmentImg" src="">
+  </div>
+</div>
+ 
 </div>
 
 <!-- SUMMER -->
@@ -1500,6 +1508,13 @@ Choose an Attachment
 </div>
   </div>
 
+ <div class="miniPreviewInline">
+  <div class="miniPreviewInner">
+    <img class="miniBackerImg" src="">
+    <img class="miniAttachmentImg" src="">
+  </div>
+</div>
+ 
 </div>
 
 <!-- FALL -->
@@ -1623,6 +1638,14 @@ Choose an Attachment
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Beer</div>
   </div>
+
+ <div class="miniPreviewInline">
+  <div class="miniPreviewInner">
+    <img class="miniBackerImg" src="">
+    <img class="miniAttachmentImg" src="">
+  </div>
+</div>
+ 
 </div>
 
 <!-- HALLOWEEN -->
@@ -1717,6 +1740,13 @@ Choose an Attachment
     <div style="font-size:13px; font-weight:600;">Jack</div>
   </div>
 
+ <div class="miniPreviewInline">
+  <div class="miniPreviewInner">
+    <img class="miniBackerImg" src="">
+    <img class="miniAttachmentImg" src="">
+  </div>
+</div>
+ 
 </div>
 
 <!-- WINTER -->
@@ -2011,6 +2041,13 @@ Choose an Attachment
     <div style="font-size:13px; font-weight:600;">Tree Cake</div>
   </div>
 
+ <div class="miniPreviewInline">
+  <div class="miniPreviewInner">
+    <img class="miniBackerImg" src="">
+    <img class="miniAttachmentImg" src="">
+  </div>
+</div>
+ 
 </div>
 
 <!-- SPORTS -->
@@ -2123,6 +2160,13 @@ Choose an Attachment
   <img id="miniBacker" src="">
   <img id="miniAttachment" src="">
 </div>
+
+ <div class="miniPreviewInline">
+  <div class="miniPreviewInner">
+    <img class="miniBackerImg" src="">
+    <img class="miniAttachmentImg" src="">
+  </div>
+</div>
  
 </div>
 
@@ -2160,8 +2204,7 @@ adjustOpenAccordions();
   // Auto-scroll on mobile
   scrollToBacker();
  
- document.getElementById('miniBacker').src = src;
-updateMiniPreview();
+updateAllMiniPreviews(src, document.getElementById('attachmentPreview').src);
 }
  
 function scrollToBacker() {
@@ -2220,8 +2263,7 @@ function setAttachment(src, options = {}, el) {
     });
   }
  
- document.getElementById('miniAttachment').src = src;
-updateMiniPreview();
+updateAllMiniPreviews(document.getElementById('backerPreview').src, src);
 }
 
 // ---------------------------
@@ -2400,21 +2442,22 @@ function showToast(message) {
   }, 2000);
 }
 
- function updateMiniPreview() {
-  const bar = document.getElementById('miniPreviewBar');
-  const backer = document.getElementById('miniBacker');
-  const attachment = document.getElementById('miniAttachment');
+function updateAllMiniPreviews(backerSrc, attachmentSrc) {
+  const isMobile = window.innerWidth <= 768;
 
-  if (!bar || !backer || !attachment) return;
+  document.querySelectorAll(".miniPreviewInline").forEach(container => {
+    const backer = container.querySelector(".miniBackerImg");
+    const attachment = container.querySelector(".miniAttachmentImg");
 
-  const hasBacker = backer.src && backer.src !== "";
-  const hasAttachment = attachment.src && attachment.src !== "";
+    if (backerSrc) backer.src = backerSrc;
+    if (attachmentSrc) attachment.src = attachmentSrc;
 
-  if (hasBacker || hasAttachment) {
-    bar.style.opacity = "1";
-  } else {
-    bar.style.opacity = "0";
-  }
+    if (isMobile && (backerSrc || attachmentSrc)) {
+      container.style.display = "flex";
+    } else {
+      container.style.display = "none";
+    }
+  });
 }
  
 </script>
