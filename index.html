@@ -233,6 +233,8 @@ div,
   display: none;
   justify-content: center;
   margin-top: 10px;
+  width: 100%;        /* 👈 forces full row */
+  flex-basis: 100%;  /* 👈 forces it to break onto new line */
 }
 
 .miniPreviewInner {
@@ -1420,7 +1422,7 @@ Choose an Attachment
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
-    <img sclass="attachment-thumb" rc="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Flamingo%20Orange1.png/:/rs=w:740,cg:true,m"
+    <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Flamingo%20Orange1.png/:/rs=w:740,cg:true,m"
          onclick="setAttachment(this.src, { name: 'Flamingo - Orange', scale: 0.42, top: '63%', left: '50.5%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
