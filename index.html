@@ -195,22 +195,20 @@ box-shadow:0 2px 6px rgba(0,0,0,0.15);
   gap: 10px;
 }
 
-  /* Each attachment block */
-  .attachment-thumb {
-    width: 100% !important; /* override the 65px */
-  }
-
-  /* The wrapper div (your flex column) */
-  #everyday > div,
-  #spring > div,
-  #summer > div,
-  #fall > div,
-  #halloween > div,
-  #winter > div,
-  #sports > div {
-    width: 20% !important; /* 👈 5 per row */
-  }
-
+.attachment-thumb {
+  width: 100% !important;
+  max-width: 55px;  /* 👈 keeps them from blowing up */
+}
+ 
+#everyday > div,
+#spring > div,
+#summer > div,
+#fall > div,
+#halloween > div,
+#winter > div,
+#sports > div {
+  flex: 0 0 calc(20% - 10px);  /* 👈 5 per row accounting for gap */
+}
 }
  
 /* Force GoDaddy HTML container to auto-size */
