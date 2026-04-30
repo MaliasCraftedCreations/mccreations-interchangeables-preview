@@ -219,6 +219,22 @@ div,
   transition: max-height 0.25s ease;
 }
 
+ /* Base arrow */
+h5[data-title]::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 12px;
+  color: #000;
+  transition: transform 0.2s ease;
+}
+
+/* Rotated when open */
+.open + h5[data-title]::before,
+h5[data-title].open::before {
+  transform: rotate(90deg);
+}
+ 
  /* Mobile-only side spacing for better scrolling */
 @media (max-width: 768px) {
   .preview-wrapper {
@@ -2284,19 +2300,21 @@ function toggleSection(id, header) {
   const section = document.getElementById(id);
   const isOpen = section.classList.contains("open");
 
-  if (isOpen) {
-    section.style.maxHeight = "0px";
-    section.classList.remove("open");
-  } else {
-    section.style.maxHeight = section.scrollHeight + "px";
-    section.classList.add("open");
-  }
+if (isOpen) {
+  section.style.maxHeight = "0px";
+  section.classList.remove("open");
+  header.classList.remove("open");
+} else {
+  section.style.maxHeight = section.scrollHeight + "px";
+  section.classList.add("open");
+  header.classList.add("open");
+}
 
   // Update triangles for all headers
   document.querySelectorAll("h5[data-title]").forEach(h => {
     const secId = h.getAttribute("onclick").match(/'([^']+)'/)[1];
     const sec = document.getElementById(secId);
-    h.innerHTML = (sec.classList.contains("open") ? "▼ " : "▶ ") + h.dataset.title;
+header.innerHTML = header.dataset.title;
   });
 }
 
