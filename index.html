@@ -182,16 +182,18 @@ box-shadow:0 2px 6px rgba(0,0,0,0.15);
  
 @media (max-width: 768px) {
 
-  /* Parent container of attachments */
-  #everyday,
-  #spring,
-  #summer,
-  #fall,
-  #halloween,
-  #winter,
-  #sports {
-    justify-content: space-between;
-  }
+#everyday,
+#spring,
+#summer,
+#fall,
+#halloween,
+#winter,
+#sports {
+  display: flex !important;       
+  justify-content: space-between;
+  flex-wrap: wrap;              
+  gap: 10px;
+}
 
   /* Each attachment block */
   .attachment-thumb {
@@ -284,8 +286,8 @@ h5.open::before {
  /* Mobile-only side spacing for better scrolling */
 @media (max-width: 768px) {
   .preview-wrapper {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 35px;
+    padding-right: 35px;
     box-sizing: border-box;
   }
 }
@@ -448,7 +450,7 @@ Choose an Attachment
     Everyday
 </h5>
 
-<div id="everyday" style="justify-content:center; gap:10px; flex-wrap:wrap;">
+<div id="everyday" style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;"
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb"
@@ -821,7 +823,7 @@ Choose an Attachment
     Spring
 </h5>
 
-<div id="spring" style="justify-content:center; gap:10px; flex-wrap:wrap;">
+<div id="spring" style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;"
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Red%20Heart-daf02c0.png/:/rs=w:740,cg:true,m"
@@ -1298,7 +1300,7 @@ Choose an Attachment
     Summer
 </h5>
 
-<div id="summer" style="justify-content:center; gap:10px; flex-wrap:wrap;">
+<div id="summer" style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;"
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Flag1.png/:/rs=w:740,cg:true,m"
@@ -1587,7 +1589,7 @@ Choose an Attachment
     style="cursor:pointer;font-size:18px;font-weight:500;margin-top:5px; display:block; width:100%;">
     Fall
 </h5>
-<div id="fall" style="justify-content:center; gap:10px; flex-wrap:wrap;">
+<div id="fall" style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;"
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Turkey1.png/:/rs=w:740,cg:true,m"
          onclick="setAttachment(this.src, { name: 'Turkey', 
@@ -1718,7 +1720,7 @@ Choose an Attachment
     style="cursor:pointer;font-size:18px;font-weight:500;margin-top:5px; display:block; width:100%;">
     Halloween
 </h5>
-<div id="halloween" style="justify-content:center;gap:10px;flex-wrap:wrap;">
+<div id="halloween" style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;"
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bat%20Purple1.png/:/rs=w:740,cg:true,m"
@@ -1819,7 +1821,7 @@ Choose an Attachment
     style="cursor:pointer;font-size:18px;font-weight:500;margin-top:5px; display:block; width:100%;">
     Winter
 </h5>
-<div id="winter" style="flex-direction:row; justify-content:center; align-items:flex-start; gap:10px; flex-wrap:wrap;">
+<div id="winter" style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;"
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/New%20Year%20Hat1.png/:/rs=w:740,cg:true,m"
@@ -2120,7 +2122,7 @@ Choose an Attachment
     style="cursor:pointer;font-size:18px;font-weight:500;margin-top:5px; display:block; width:100%;">
     Sports
 </h5>
-<div id="sports" style="justify-content:center;gap:10px;flex-wrap:wrap;">
+<div id="sports" style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;"
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Softball%20V1.png/:/rs=w:364,cg:true,m"
