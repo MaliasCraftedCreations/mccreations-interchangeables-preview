@@ -2265,7 +2265,11 @@ function setAttachment(src, options = {}, el) {
     });
   }
  
-updateAllMiniPreviews(document.getElementById('backerPreview').src, src);
+updateAllMiniPreviews(
+  document.getElementById('backerPreview').src,
+  src,
+  options
+);
 }
 
 // ---------------------------
@@ -2311,6 +2315,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const section = document.getElementById(id);
     header.innerHTML = (section.classList.contains("open") ? "▼ " : "▶ ") + header.dataset.title;
   });
+ const defaultBacker = document.getElementById('backerPreview')?.src;
+const defaultAttachment = document.getElementById('attachmentPreview')?.src;
+
+updateAllMiniPreviews(defaultBacker, defaultAttachment);
 });
 </script>
 
@@ -2444,7 +2452,7 @@ function showToast(message) {
   }, 2000);
 }
 
-function updateAllMiniPreviews(backerSrc, attachmentSrc) {
+function updateAllMiniPreviews(backerSrc, attachmentSrc, options = {}) {
   const isMobile = window.innerWidth <= 768;
 
   document.querySelectorAll(".miniPreviewInline").forEach(container => {
@@ -2453,6 +2461,18 @@ function updateAllMiniPreviews(backerSrc, attachmentSrc) {
 
     if (backerSrc) backer.src = backerSrc;
     if (attachmentSrc) attachment.src = attachmentSrc;
+
+    // 👇 APPLY SAME POSITIONING AS MAIN PREVIEW
+    if (attachment && options) {
+      const top  = options.top || "65%";
+      const left = options.left || "51%";
+      const scale = options.scale || 0.3;
+
+      attachment.style.top = top;
+      attachment.style.left = left;
+      attachment.style.transform = "translate(-50%, -50%)";
+      attachment.style.width = (scale * 100) + "%";
+    }
 
     if (isMobile && (backerSrc || attachmentSrc)) {
       container.style.display = "flex";
