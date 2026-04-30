@@ -226,16 +226,27 @@ h5[data-title] {
   color: #000;
 }
 
+h5[data-title] {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Arrow made from borders (not text) */
 h5[data-title]::before {
-  font-family: Arial, sans-serif;
-  content: "\25B6"; /* solid triangle, not emoji */
+  content: "";
   display: inline-block;
-  font-size: 12px;
-  color: #000;
-  margin-right: 6px;
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 7px solid #000; /* arrow color */
+
   transition: transform 0.2s ease;
 }
 
+/* Rotate when open */
 h5.open::before {
   transform: rotate(90deg);
 }
