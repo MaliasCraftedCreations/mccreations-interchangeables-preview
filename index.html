@@ -233,12 +233,11 @@ div,
   display: none;
 }
 
-/* Mobile only */
 @media (max-width: 768px) {
   #miniPreviewBar {
     display: flex;
     position: fixed;
-    bottom: 10px;
+    bottom: 70px; /* 👈 moves it ABOVE your thumbnails */
     left: 50%;
     transform: translateX(-50%);
     gap: 6px;
@@ -247,12 +246,17 @@ div,
     background: rgba(214,177,161,0.95);
     border: 2px dashed #c89f8d;
     z-index: 9999;
+
+    opacity: 0;
+    transition: opacity 0.25s ease;
   }
 
   #miniPreviewBar img {
     width: 40px;
     height: auto;
+    display: block;
   }
+}
 
   #miniAttachment {
     position: absolute;
@@ -2155,7 +2159,11 @@ adjustOpenAccordions();
 
   // Auto-scroll on mobile
   scrollToBacker();
+ 
+ document.getElementById('miniBacker').src = src;
+updateMiniPreview();
 }
+ 
 function scrollToBacker() {
   // Only scroll on mobile
   if (window.innerWidth <= 768) { // match your mobile breakpoint
@@ -2211,6 +2219,9 @@ function setAttachment(src, options = {}, el) {
       block: "center"
     });
   }
+ 
+ document.getElementById('miniAttachment').src = src;
+updateMiniPreview();
 }
 
 // ---------------------------
@@ -2388,4 +2399,22 @@ function showToast(message) {
     toast.style.transform = "translateX(-50%) translateY(10px)";
   }, 2000);
 }
+
+ function updateMiniPreview() {
+  const bar = document.getElementById('miniPreviewBar');
+  const backer = document.getElementById('miniBacker');
+  const attachment = document.getElementById('miniAttachment');
+
+  if (!bar || !backer || !attachment) return;
+
+  const hasBacker = backer.src && backer.src !== "";
+  const hasAttachment = attachment.src && attachment.src !== "";
+
+  if (hasBacker || hasAttachment) {
+    bar.style.opacity = "1";
+  } else {
+    bar.style.opacity = "0";
+  }
+}
+ 
 </script>
