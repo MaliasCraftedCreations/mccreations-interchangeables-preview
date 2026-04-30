@@ -270,8 +270,10 @@ div,
 }
 
 .selected-thumb {
-  box-shadow: 0 0 12px 4px rgba(200,159,141,0.8);
-  transform: scale(1.05);
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.9))
+          drop-shadow(0 0 12px rgba(255,255,255,0.8))
+          drop-shadow(0 0 18px rgba(255,255,255,0.7));
+  transform: scale(1.08);
 }
 </style>
 
@@ -411,21 +413,21 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Animal%20Stack-40f7f3a.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Animal Stack', scale: 0.44, top: '67%', left: '49.5%' })"
+         onclick="setAttachment(this.src, { name: 'Animal Stack', scale: 0.44, top: '67%', left: '49.5%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Animal Stack</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Ladybug1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Ladybug', scale: 0.38, top: '61%', left: '52%' })"
+         onclick="setAttachment(this.src, { name: 'Ladybug', scale: 0.38, top: '61%', left: '52%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Ladybug</div>
   </div>
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Butterfly%20Pink.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Butterfly - Pink', scale: 0.38, top: '61%', left: '52%' })"
+         onclick="setAttachment(this.src, { name: 'Butterfly - Pink', scale: 0.38, top: '61%', left: '52%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
    <div style="font-size:13px; font-weight:600; text-align:center; line-height:1.2; max-width:75px;">
  Butterfly -<br>Pink
@@ -434,7 +436,7 @@ Choose an Attachment
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Butterfly%20Purple.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Butterfly - Purple', scale: 0.38, top: '61%', left: '52%' })"
+         onclick="setAttachment(this.src, { name: 'Butterfly - Purple', scale: 0.38, top: '61%', left: '52%' }, this)"
   style="width:65px; cursor:pointer; display:block;">
    <div style="font-size:13px; font-weight:600; text-align:center; line-height:1.2; max-width:75px;">
  Butterfly -<br>Purple
@@ -443,7 +445,7 @@ Choose an Attachment
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Butterfly%20Orange.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Butterfly - Orange', scale: 0.38, top: '61%', left: '52%' })"
+         onclick="setAttachment(this.src, { name: 'Butterfly - Orange', scale: 0.38, top: '61%', left: '52%' }, this)"
   style="width:65px; cursor:pointer; display:block;">
    <div style="font-size:13px; font-weight:600; text-align:center; line-height:1.2; max-width:75px;">
  Butterfly -<br>Orange
@@ -452,28 +454,28 @@ Choose an Attachment
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Butterfly%20Blue.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Butterfly - Blue', scale: 0.38, top: '61%', left: '52%' })"
+         onclick="setAttachment(this.src, { name: 'Butterfly - Blue', scale: 0.38, top: '61%', left: '52%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Butterfly - Blue</div>
   </div>
 
  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Dachshund.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Dachshund', scale: 0.45, top: '62%', left: '53%' })"
+         onclick="setAttachment(this.src, { name: 'Dachshund', scale: 0.45, top: '62%', left: '53%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Dachshund</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Dog.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Dog', scale: 0.41, top: '64.3%', left: '50%' })"
+         onclick="setAttachment(this.src, { name: 'Dog', scale: 0.41, top: '64.3%', left: '50%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Dog</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Dog%20Bone-2920e9b.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Dog Bone - Red', scale: 0.37, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Dog Bone - Red', scale: 0.37, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="
   font-size:13px;
@@ -488,7 +490,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Paw%20Brown.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Paw - Brown', scale: 0.41, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Paw - Brown', scale: 0.41, top: '62%', left: '51%' }, this)"
     style="width:65px; cursor:pointer; display:block;">
    <div style="font-size:13px; font-weight:600; text-align:center; line-height:1.2; max-width:75px;">
  Paw -<br>Brown
@@ -497,7 +499,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Paw%20Grey.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Paw - Grey', scale: 0.41, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Paw - Grey', scale: 0.41, top: '62%', left: '51%' }, this)"
   style="width:65px; cursor:pointer; display:block;">
    <div style="font-size:13px; font-weight:600; text-align:center; line-height:1.2; max-width:75px;">
  Paw -<br>Grey
@@ -506,14 +508,14 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Cat.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Cat', scale: 0.37, top: '64%', left: '50%' })"
+         onclick="setAttachment(this.src, { name: 'Cat', scale: 0.37, top: '64%', left: '50%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Cat</div>
   </div>
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bear.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Bear Silhouette', scale: 0.36, top: '64%', left: '51%' })"
+       onclick="setAttachment(this.src, { name: 'Bear Silhouette', scale: 0.36, top: '64%', left: '51%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="
   font-size:13px;
@@ -528,7 +530,7 @@ Choose an Attachment
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Chicken%20Silhouette%20White.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Chicken Silhouette - White', scale: 0.39, top: '63%', left: '51%' })"
+       onclick="setAttachment(this.src, { name: 'Chicken Silhouette - White', scale: 0.39, top: '63%', left: '51%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="
   font-size:13px;
@@ -543,7 +545,7 @@ Choose an Attachment
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Chicken%20Silhouette%20Black.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Chicken Silhouette - Black', scale: 0.4, top: '62%', left: '51%' })"
+       onclick="setAttachment(this.src, { name: 'Chicken Silhouette - Black', scale: 0.4, top: '62%', left: '51%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="
   font-size:13px;
@@ -558,21 +560,21 @@ Choose an Attachment
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bird.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Bird', scale: 0.36, top: '63%', left: '52%' })"
+       onclick="setAttachment(this.src, { name: 'Bird', scale: 0.36, top: '63%', left: '52%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="font-size:13px; font-weight:600;">Bird</div>
 </div>
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Dogwood1.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Dogwood', scale: 0.43, top: '63%', left: '52%' })"
+       onclick="setAttachment(this.src, { name: 'Dogwood', scale: 0.43, top: '63%', left: '52%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="font-size:13px; font-weight:600;">Dogwood</div>
 </div>
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Tulip%20Blue-4a11338.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Tulip - Blue', scale: 0.4, top: '65.5%', left: '50.5%' })"
+       onclick="setAttachment(this.src, { name: 'Tulip - Blue', scale: 0.4, top: '65.5%', left: '50.5%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
    <div style="font-size:13px; font-weight:600; text-align:center; line-height:1.2; max-width:75px;">
  Tulip -<br>Blue
@@ -581,7 +583,7 @@ Choose an Attachment
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Tulip%20Pink.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Tulip - Pink', scale: 0.4, top: '66%', left: '50.5%' })"
+       onclick="setAttachment(this.src, { name: 'Tulip - Pink', scale: 0.4, top: '66%', left: '50.5%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
    <div style="font-size:13px; font-weight:600; text-align:center; line-height:1.2; max-width:75px;">
  Tulip -<br>Pink
@@ -590,7 +592,7 @@ Choose an Attachment
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Tulip%20Purple-3eaa1cd.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Tulip - Purple', scale: 0.4, top: '65.7%', left: '50.5%' })"
+       onclick="setAttachment(this.src, { name: 'Tulip - Purple', scale: 0.4, top: '65.7%', left: '50.5%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
    <div style="font-size:13px; font-weight:600; text-align:center; line-height:1.2; max-width:75px;">
  Tulip -<br>Purple
@@ -599,14 +601,14 @@ Choose an Attachment
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Rainbow1.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Rainbow', scale: 0.37, top: '65%', left: '51%' })"
+       onclick="setAttachment(this.src, { name: 'Rainbow', scale: 0.37, top: '65%', left: '51%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="font-size:13px; font-weight:600;">Rainbow</div>
 </div>
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Camper%20Green-31bee4a.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Camper - Green', scale: 0.37, top: '64%', left: '51%' })"
+       onclick="setAttachment(this.src, { name: 'Camper - Green', scale: 0.37, top: '64%', left: '51%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
 <div style="
   font-size:13px;
@@ -621,7 +623,7 @@ Choose an Attachment
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Camper%20Red-75234fe.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Camper - Red', scale: 0.37, top: '64%', left: '51%' })"
+       onclick="setAttachment(this.src, { name: 'Camper - Red', scale: 0.37, top: '64%', left: '51%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
 <div style="
   font-size:13px;
@@ -636,14 +638,14 @@ Choose an Attachment
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Grad%20Hat.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Grad Hat', scale: 0.37, top: '62%', left: '52%' })"
+       onclick="setAttachment(this.src, { name: 'Grad Hat', scale: 0.37, top: '62%', left: '52%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="font-size:13px; font-weight:600;">Grad Hat</div>
 </div>
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Masquerade%20Mask-353875a.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Masquerade Mask', scale: 0.35, top: '63%', left: '51%' })"
+       onclick="setAttachment(this.src, { name: 'Masquerade Mask', scale: 0.35, top: '63%', left: '51%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
 <div style="
   font-size:13px;
@@ -658,7 +660,7 @@ Choose an Attachment
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Red%20Solo%20Cup-5e7812e.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Red Solo Cup', scale: 0.4, top: '64%', left: '50.5%' })"
+       onclick="setAttachment(this.src, { name: 'Red Solo Cup', scale: 0.4, top: '64%', left: '50.5%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
 <div style="
   font-size:13px;
@@ -673,56 +675,56 @@ Choose an Attachment
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Succulent%20V2.png/:/rs=w:364,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Succulent', scale: 0.36, top: '62%', left: '50.5%' })"
+       onclick="setAttachment(this.src, { name: 'Succulent', scale: 0.36, top: '62%', left: '50.5%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="font-size:13px; font-weight:600;">Succulent</div>
 </div>
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/NC%20State%20Outline.png/:/rs=w:364,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'NC State', scale: 0.4, top: '62%', left: '51%' })"
+       onclick="setAttachment(this.src, { name: 'NC State', scale: 0.4, top: '62%', left: '51%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="font-size:13px; font-weight:600;">NC State</div>
 </div>
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Cupcake-392edec.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Cupcake', scale: 0.34, top: '62%', left: '50%' })"
+       onclick="setAttachment(this.src, { name: 'Cupcake', scale: 0.34, top: '62%', left: '50%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="font-size:13px; font-weight:600;">Cupcake</div>
 </div>
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Strawberry-1419149.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Strawberry', scale: 0.39, top: '63%', left: '51.5%' })"
+       onclick="setAttachment(this.src, { name: 'Strawberry', scale: 0.39, top: '63%', left: '51.5%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="font-size:13px; font-weight:600;">Strawberry</div>
 </div>
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Orange.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Orange', scale: 0.335, top: '62%', left: '51.5%' })"
+       onclick="setAttachment(this.src, { name: 'Orange', scale: 0.335, top: '62%', left: '51.5%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="font-size:13px; font-weight:600;">Orange</div>
 </div>
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Peach.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Peach', scale: 0.335, top: '62%', left: '51.5%' })"
+       onclick="setAttachment(this.src, { name: 'Peach', scale: 0.335, top: '62%', left: '51.5%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="font-size:13px; font-weight:600;">Peach</div>
 </div>
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Lemon-edcdeaa.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Lemon', scale: 0.36, top: '63%', left: '51.5%' })"
+       onclick="setAttachment(this.src, { name: 'Lemon', scale: 0.36, top: '63%', left: '51.5%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="font-size:13px; font-weight:600;">Lemon</div>
 </div>
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Apple%20Best%20Teacher-9e6fdaa.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Best Teacher Apple', scale: 0.37, top: '63%', left: '50.5%' })"
+       onclick="setAttachment(this.src, { name: 'Best Teacher Apple', scale: 0.37, top: '63%', left: '50.5%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
 <div style="
   font-size:13px;
@@ -737,7 +739,7 @@ Choose an Attachment
 
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
   <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Death%20Star1.png/:/rs=w:740,cg:true,m"
-       onclick="setAttachment(this.src, { name: 'Death Star', scale: 0.37, top: '62%', left: '51.5%' })"
+       onclick="setAttachment(this.src, { name: 'Death Star', scale: 0.37, top: '62%', left: '51.5%' }, this)"
        style="width:65px; cursor:pointer; display:block;">
   <div style="font-size:13px; font-weight:600;">Death Star</div>
 </div>
@@ -755,14 +757,14 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Red%20Heart-daf02c0.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Red Heart', scale: 0.38, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Red Heart', scale: 0.38, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Red Heart</div>
   </div>
 
     <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Red%20Heart%20Squiggles-32f4bc4.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Red Heart Squiggly', scale: 0.38, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Red Heart Squiggly', scale: 0.38, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
   <div style="
   font-size:13px;
@@ -777,14 +779,14 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/XO-ac4ed29.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'XO', scale: 0.41, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'XO', scale: 0.41, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">XO</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sweetheart%20Kiss%20me%20Blue-4f6c0b3.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Sweetheart - Kiss Me - Blue', scale: 0.38, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Sweetheart - Kiss Me - Blue', scale: 0.38, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
   <div style="
   font-size:13px;
@@ -799,7 +801,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sweetheart%20Be%20Mine%20Pink-2d6f463.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Sweetheart - Be Mine - Pink', scale: 0.38, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Sweetheart - Be Mine - Pink', scale: 0.38, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
   <div style="
   font-size:13px;
@@ -814,7 +816,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sweetheart%20Be%20Mine%20Purple-e92dbee.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Sweetheart - Be Mine - Purple', scale: 0.38, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Sweetheart - Be Mine - Purple', scale: 0.38, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
   <div style="
   font-size:13px;
@@ -829,7 +831,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sweetheart%20Be%20Mine%20Blue-d12916a.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Sweetheart - Be Mine - Blue', scale: 0.38, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Sweetheart - Be Mine - Blue', scale: 0.38, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
   <div style="
   font-size:13px;
@@ -843,7 +845,7 @@ Choose an Attachment
   </div>
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sweetheart%20Be%20Mine%20Green-a7ace9a.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Sweetheart - Be Mine - Green', scale: 0.38, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Sweetheart - Be Mine - Green', scale: 0.38, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
   <div style="
   font-size:13px;
@@ -858,7 +860,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sweetheart%20XOXO%20Orange-1c6633d.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Sweetheart - XOXO - Orange', scale: 0.38, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Sweetheart - XOXO - Orange', scale: 0.38, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -873,7 +875,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sweetheart%20XOXO%20Pink-736c94f.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Sweetheart - XOXO - Pink', scale: 0.38, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Sweetheart - XOXO - Pink', scale: 0.38, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -888,7 +890,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sweetheart%20XOXO%20Purple-f299494.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Sweetheart - XOXO - Purple', scale: 0.38, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Sweetheart - XOXO - Purple', scale: 0.38, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -903,7 +905,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Leprechaun%20Hat%20Dark%20Green.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Leprechaun Hat - Dark Green', scale: 0.38, top: '65%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Leprechaun Hat - Dark Green', scale: 0.38, top: '65%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -918,7 +920,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Leprechaun%20Hat%20Lime.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Leprechaun Hat - Lime', scale: 0.41, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Leprechaun Hat - Lime', scale: 0.41, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -933,14 +935,14 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Leprechaun.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Leprechaun', scale: 0.38, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Leprechaun', scale: 0.38, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Leprechaun</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Clover%20Dark%20Green%20w_%20Gold.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Clover - Dark Green/Gold', scale: 0.4, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Clover - Dark Green/Gold', scale: 0.4, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -954,7 +956,7 @@ Choose an Attachment
   </div>
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Clover%20Medium%20Green-93f1c82.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Clover - Medium Green', scale: 0.38, top: '63%', left: '52%' })"
+         onclick="setAttachment(this.src, { name: 'Clover - Medium Green', scale: 0.38, top: '63%', left: '52%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -970,7 +972,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Clover%20Lime%20Green.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Clover - Lime', scale: 0.43, top: '63%', left: '52%' })"
+         onclick="setAttachment(this.src, { name: 'Clover - Lime', scale: 0.43, top: '63%', left: '52%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -985,7 +987,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Chick%20in%20Egg%20Blue1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Chick - Blue', scale: 0.38, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Chick - Blue', scale: 0.38, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1000,7 +1002,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Chick%20in%20Egg%20Blue%20Blush.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Chick - Blue w/Blush', scale: 0.38, top: '62%', left: '52%' })"
+         onclick="setAttachment(this.src, { name: 'Chick - Blue w/Blush', scale: 0.38, top: '62%', left: '52%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1015,7 +1017,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Peep%20Blue-3cf7632.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Peep - Blue', scale: 0.42, top: '65%', left: '50%' })"
+         onclick="setAttachment(this.src, { name: 'Peep - Blue', scale: 0.42, top: '65%', left: '50%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1030,7 +1032,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Peep%20Purple.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Peep - Purple', scale: 0.41, top: '65%', left: '50%' })"
+         onclick="setAttachment(this.src, { name: 'Peep - Purple', scale: 0.41, top: '65%', left: '50%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1045,7 +1047,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Peep%20Pink.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Peep - Light Pink', scale: 0.41, top: '65%', left: '50%' })"
+         onclick="setAttachment(this.src, { name: 'Peep - Light Pink', scale: 0.41, top: '65%', left: '50%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1060,7 +1062,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Peep%20Dark%20Pink.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Peep - Dark Pink', scale: 0.42, top: '65%', left: '50%' })"
+         onclick="setAttachment(this.src, { name: 'Peep - Dark Pink', scale: 0.42, top: '65%', left: '50%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1075,7 +1077,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Peep%20Yellow-b80c3b6.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Peep - Yellow', scale: 0.41, top: '65%', left: '50.9%' })"
+         onclick="setAttachment(this.src, { name: 'Peep - Yellow', scale: 0.41, top: '65%', left: '50.9%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1090,14 +1092,14 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Carrot-11c50c9.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Carrot', scale: 0.39, top: '62%', left: '53%' })"
+         onclick="setAttachment(this.src, { name: 'Carrot', scale: 0.39, top: '62%', left: '53%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Carrot</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bunny%20Butt%20White.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Bunny Bum - White', scale: 0.41, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Bunny Bum - White', scale: 0.41, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1112,7 +1114,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bunny%20Butt%20Brown.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Bunny Bum - Brown', scale: 0.4, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Bunny Bum - Brown', scale: 0.4, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1127,7 +1129,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bunny%20Sillhouette%20Green-c83003d.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Bunny Silhouette - Green', scale: 0.43, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Bunny Silhouette - Green', scale: 0.43, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1142,7 +1144,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bunny%20Sillhouette%20Blue-b2cbbc9.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Bunny Silhouette - Blue', scale: 0.42, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Bunny Silhouette - Blue', scale: 0.42, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1157,21 +1159,21 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bunny%20Sillhouette.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Bunny', scale: 0.43, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Bunny', scale: 0.43, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Bunny</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Easter%20Cross-3853bf7.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Easter Cross', scale: 0.41, top: '64%', left: '50.5%' })"
+         onclick="setAttachment(this.src, { name: 'Easter Cross', scale: 0.41, top: '64%', left: '50.5%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Easter Cross</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Egg%20Blue-75b784d.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Egg - Blue', scale: 0.38, top: '65%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Egg - Blue', scale: 0.38, top: '65%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
    <div style="font-size:13px; font-weight:600; text-align:center; line-height:1.2; max-width:75px;">
  Egg -<br>Blue
@@ -1180,7 +1182,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Egg%20Pink-d1b924d.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Egg - Pink', scale: 0.39, top: '65%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Egg - Pink', scale: 0.39, top: '65%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
    <div style="font-size:13px; font-weight:600; text-align:center; line-height:1.2; max-width:75px;">
  Egg -<br>Pink
@@ -1189,7 +1191,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Egg%20Purple-d912832.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Egg - Purple', scale: 0.39, top: '65%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Egg - Purple', scale: 0.39, top: '65%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
    <div style="font-size:13px; font-weight:600; text-align:center; line-height:1.2; max-width:75px;">
  Egg -<br>Purple
@@ -1198,7 +1200,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Egg%20Orange-b567c05.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Egg - Orange', scale: 0.39, top: '65%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Egg - Orange', scale: 0.39, top: '65%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
    <div style="font-size:13px; font-weight:600; text-align:center; line-height:1.2; max-width:75px;">
  Egg -<br>Orange
@@ -1207,7 +1209,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Eggs%20in%20Easter%20Basket-ec62f2c.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Easter Basket', scale: 0.41, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Easter Basket', scale: 0.41, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Easter Basket</div>
   </div>
@@ -1225,14 +1227,14 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Flag1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Flag', scale: 0.37, top: '62.5%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Flag', scale: 0.37, top: '62.5%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Flag</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sun%20Orange1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Sun - Orange', scale: 0.4, top: '65%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Sun - Orange', scale: 0.4, top: '65%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
 <div style="
   font-size:13px;
@@ -1247,7 +1249,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sun%20Yellow.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Sun - Yellow', scale: 0.37, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Sun - Yellow', scale: 0.37, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1262,35 +1264,35 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sand%20Dollar.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Sand Dollar', scale: 0.35, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Sand Dollar', scale: 0.35, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Sand Dollar</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Conch%20Shell.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Conch', scale: 0.35, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Conch', scale: 0.35, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Conch</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Beach%20Ball.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Beach Ball', scale: 0.35, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Beach Ball', scale: 0.35, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Beach Ball</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Anchor.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Anchor', scale: 0.42, top: '67%', left: '50%' })"
+         onclick="setAttachment(this.src, { name: 'Anchor', scale: 0.42, top: '67%', left: '50%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Anchor</div>
   </div>
 
  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Flip%20Flops%20Blue.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Flip Flops - Blue', scale: 0.41, top: '63%', left: '50%' })"
+         onclick="setAttachment(this.src, { name: 'Flip Flops - Blue', scale: 0.41, top: '63%', left: '50%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
   <div style="
   font-size:13px;
@@ -1305,7 +1307,7 @@ Choose an Attachment
 
  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Flip%20Flops%20Pink.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Flip Flops - Pink', scale: 0.41, top: '63%', left: '50%' })"
+         onclick="setAttachment(this.src, { name: 'Flip Flops - Pink', scale: 0.41, top: '63%', left: '50%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
   <div style="
   font-size:13px;
@@ -1320,7 +1322,7 @@ Choose an Attachment
 
  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Flip%20Flops%20Orange.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Flip Flops - Orange', scale: 0.41, top: '63%', left: '50%' })"
+         onclick="setAttachment(this.src, { name: 'Flip Flops - Orange', scale: 0.41, top: '63%', left: '50%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
   <div style="
   font-size:13px;
@@ -1335,28 +1337,28 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Starfish-8214cd6.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Starfish', scale: 0.36, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Starfish', scale: 0.36, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Starfish</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Crab%20Blue.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Crab - Blue', scale: 0.39, top: '61.5%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Crab - Blue', scale: 0.39, top: '61.5%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Crab - Blue</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Crab%20Red.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Crab - Red', scale: 0.39, top: '61.5%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Crab - Red', scale: 0.39, top: '61.5%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Crab - Red</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Mermaid%20Tail%20V1-6b56d74.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Mermaid Tail - Pink', scale: 0.47, top: '68%', left: '45%' })"
+         onclick="setAttachment(this.src, { name: 'Mermaid Tail - Pink', scale: 0.47, top: '68%', left: '45%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
 <div style="
   font-size:13px;
@@ -1371,7 +1373,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Mermaid%20Tail%20V21.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Mermaid Tail - Green', scale: 0.48, top: '69%', left: '43%' })"
+         onclick="setAttachment(this.src, { name: 'Mermaid Tail - Green', scale: 0.48, top: '69%', left: '43%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1386,14 +1388,14 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Turtle1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Turtle', scale: 0.41, top: '64%', left: '50%' })"
+         onclick="setAttachment(this.src, { name: 'Turtle', scale: 0.41, top: '64%', left: '50%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Turtle</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Flamingo%20Pink1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Flamingo - Pink', scale: 0.43, top: '62.5%', left: '49.8%' })"
+         onclick="setAttachment(this.src, { name: 'Flamingo - Pink', scale: 0.43, top: '62.5%', left: '49.8%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1408,7 +1410,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img sclass="attachment-thumb" rc="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Flamingo%20Orange1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Flamingo - Orange', scale: 0.42, top: '63%', left: '50.5%' })"
+         onclick="setAttachment(this.src, { name: 'Flamingo - Orange', scale: 0.42, top: '63%', left: '50.5%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1423,7 +1425,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Hibiscus%20Pink%20%26%20Yellow1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Hibiscus - Pink/Yellow', scale: 0.35, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Hibiscus - Pink/Yellow', scale: 0.35, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
 <div style="
   font-size:13px;
@@ -1438,7 +1440,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Hibiscus%20Coral%20%26%20Yellow1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Hibiscus Coral/Yellow', scale: 0.35, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Hibiscus Coral/Yellow', scale: 0.35, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1453,21 +1455,21 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Popsicle%20Blue1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Popsicle', scale: 0.41, top: '65%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Popsicle', scale: 0.41, top: '65%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Popsicle</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Pineapple1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Pineapple', scale: 0.44, top: '60.9%', left: '50%' })"
+         onclick="setAttachment(this.src, { name: 'Pineapple', scale: 0.44, top: '60.9%', left: '50%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Pineapple</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Watermelon%20Pink1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Watermelon - Pink', scale: 0.37, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Watermelon - Pink', scale: 0.37, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
   <div style="
   font-size:13px;
@@ -1482,7 +1484,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Watermelon%20Red1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Watermelon - Red', scale: 0.37, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Watermelon - Red', scale: 0.37, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1510,7 +1512,7 @@ Choose an Attachment
            scale: 0.38,
            top: '61%',
            left: '51%'
-         })"
+         }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Turkey</div>
   </div>
@@ -1520,7 +1522,7 @@ Choose an Attachment
            scale: 0.40,
            top: '65%',
            left: '51%'
-         })"
+         }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Sunflower</div>
   </div>
@@ -1530,7 +1532,7 @@ Choose an Attachment
            scale: 0.44,
            top: '63%',
            left: '51%'
-         })"
+         }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Leaf</div>
   </div>
@@ -1540,7 +1542,7 @@ Choose an Attachment
            scale: 0.4,
            top: '62%',
            left: '52%'
-         })"
+         }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Pumpkin</div>
   </div>
@@ -1550,7 +1552,7 @@ Choose an Attachment
            scale: 0.45,
            top: '65%',
            left: '52%'
-         })"
+         }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Scarecrow</div>
   </div>
@@ -1560,7 +1562,7 @@ Choose an Attachment
            scale: 0.37,
            top: '65%',
            left: '51%'
-         })"
+         }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1578,7 +1580,7 @@ Choose an Attachment
            scale: 0.42,
            top: '65%',
            left: '51.5%'
-         })"
+         }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1596,7 +1598,7 @@ Choose an Attachment
            scale: 0.38,
            top: '65%',
            left: '50.5%'
-         })"
+         }, this)"
          style="width:65px; cursor:pointer; display:block;">
  <div style="
   font-size:13px;
@@ -1614,7 +1616,7 @@ Choose an Attachment
            scale: 0.45,
            top: '62.5%',
            left: '48.5%'
-         })"
+         }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Beer</div>
   </div>
@@ -1630,84 +1632,84 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bat%20Purple1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Bat - Purple', scale: 0.41, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Bat - Purple', scale: 0.41, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Bat - Purple</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Bat%20Black1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Bat - Black', scale: 0.395, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Bat - Black', scale: 0.395, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Bat - Black</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Ghost%20V11.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Ghost V1', scale: 0.38, top: '64%', left: '49%' })"
+         onclick="setAttachment(this.src, { name: 'Ghost V1', scale: 0.38, top: '64%', left: '49%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Ghost V1</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Ghost%20V21.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Ghost V2', scale: 0.445, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Ghost V2', scale: 0.445, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Ghost V2</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Cauldron.png/:/rs=w:364,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Cauldron', scale: 0.445, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Cauldron', scale: 0.445, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Cauldron</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Grave%20Headstone.png/:/rs=w:364,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Grave Headstone', scale: 0.42, top: '62.5%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Grave Headstone', scale: 0.42, top: '62.5%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Grave Headstone</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Sugar%20Skull1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Sugar Skull', scale: 0.43, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Sugar Skull', scale: 0.43, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Sugar Skull</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Skull1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Skull', scale: 0.44, top: '63.5%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Skull', scale: 0.44, top: '63.5%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Skull</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Jack-o-lantern1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Jack-o-Lantern', scale: 0.38, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Jack-o-Lantern', scale: 0.38, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Jack-o-Lantern</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Frankenstein1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Frankenstein', scale: 0.38, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Frankenstein', scale: 0.38, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Frankenstein</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Candy%20Corn1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Candy Corn', scale: 0.4, top: '62.5%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Candy Corn', scale: 0.4, top: '62.5%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Candy Corn</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Jack1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Jack', scale: 0.36, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Jack', scale: 0.36, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Jack</div>
   </div>
@@ -1724,7 +1726,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/New%20Year%20Hat1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'New Years Hat', scale: 0.41, top: '71%', left: '50.2%' })"
+         onclick="setAttachment(this.src, { name: 'New Years Hat', scale: 0.41, top: '71%', left: '50.2%' }, this)"
          style="width:65px; cursor:pointer;">
   <div style="
   font-size:13px;
@@ -1739,14 +1741,14 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Santa1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Santa', scale: 0.42, top: '63%', left: '50.5%' })"
+         onclick="setAttachment(this.src, { name: 'Santa', scale: 0.42, top: '63%', left: '50.5%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Santa</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Tree%20Star%20Lime1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Tree w/ Star - Lime', scale: 0.46, top: '63.5%', left: '50.2%' })"
+         onclick="setAttachment(this.src, { name: 'Tree w/ Star - Lime', scale: 0.46, top: '63.5%', left: '50.2%' }, this)"
          style="width:65px; cursor:pointer;">
   <div style="
   font-size:13px;
@@ -1761,7 +1763,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Tree%20Star%20Dark%20Green1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Tree w/ Star - Dark Green', scale: 0.46, top: '63.5%', left: '50.2%' })"
+         onclick="setAttachment(this.src, { name: 'Tree w/ Star - Dark Green', scale: 0.46, top: '63.5%', left: '50.2%' }, this)"
          style="width:65px; cursor:pointer;">
   <div style="
   font-size:13px;
@@ -1776,13 +1778,13 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Snow%20Tree1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Snowy Tree', scale: 0.43, top: '63%', left: '50.4%' })"
+         onclick="setAttachment(this.src, { name: 'Snowy Tree', scale: 0.43, top: '63%', left: '50.4%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Snowy Tree</div>
   </div>
 <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Ornament%20Red1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Ornament - Red', scale: 0.44, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Ornament - Red', scale: 0.44, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
   <div style="
   font-size:13px;
@@ -1797,7 +1799,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Ornament%20Blue1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Ornament - Blue', scale: 0.44, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Ornament - Blue', scale: 0.44, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
   <div style="
   font-size:13px;
@@ -1812,7 +1814,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Ornament%20Red%26Green1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Ornament - Red & Green', scale: 0.44, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Ornament - Red & Green', scale: 0.44, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
   <div style="
   font-size:13px;
@@ -1827,7 +1829,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Present%20Red%26Green1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Present - Red & Green', scale: 0.4, top: '62.5%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Present - Red & Green', scale: 0.4, top: '62.5%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
 <div style="
   font-size:13px;
@@ -1842,7 +1844,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Present%20Lime%26Red1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Present - Lime & Red', scale: 0.4, top: '62.5%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Present - Lime & Red', scale: 0.4, top: '62.5%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
 <div style="
   font-size:13px;
@@ -1857,14 +1859,14 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Elf%20Hat1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Elf Hat', scale: 0.48, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Elf Hat', scale: 0.48, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Elf Hat</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Stocking%20Blue1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Stocking - Blue', scale: 0.4, top: '67%', left: '48%' })"
+         onclick="setAttachment(this.src, { name: 'Stocking - Blue', scale: 0.4, top: '67%', left: '48%' }, this)"
          style="width:65px; cursor:pointer;">
    <div style="
   font-size:13px;
@@ -1879,7 +1881,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Stocking%20Red1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Stocking - Red', scale: 0.4, top: '67%', left: '48%' })"
+         onclick="setAttachment(this.src, { name: 'Stocking - Red', scale: 0.4, top: '67%', left: '48%' }, this)"
          style="width:65px; cursor:pointer;">
    <div style="
   font-size:13px;
@@ -1894,63 +1896,63 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Dove1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Dove', scale: 0.46, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Dove', scale: 0.46, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Dove</div>
   </div>
 
  <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Cardinal-08ff6ef.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Cardinal', scale: 0.39, top: '60%', left: '47%' })"
+         onclick="setAttachment(this.src, { name: 'Cardinal', scale: 0.39, top: '60%', left: '47%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Cardinal</div>
    </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Gnome%2011.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Gnome 1', scale: 0.43, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Gnome 1', scale: 0.43, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Gnome 1</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Gnome%2021.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Gnome 2', scale: 0.43, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Gnome 2', scale: 0.43, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Gnome 2</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Gnome%2031.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Gnome 3', scale: 0.43, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Gnome 3', scale: 0.43, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Gnome 3</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Snowflake-1484d89.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Snowflake', scale: 0.39, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Snowflake', scale: 0.39, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Snowflake</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Snowman%20Red1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Snowman', scale: 0.42, top: '62%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Snowman', scale: 0.42, top: '62%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Snowman</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Reindeer1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Reindeer', scale: 0.43, top: '65%', left: '51.5%' })"
+         onclick="setAttachment(this.src, { name: 'Reindeer', scale: 0.43, top: '65%', left: '51.5%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Reindeer</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Reindeer%20Rudolph1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Reindeer Rudolph', scale: 0.42, top: '65%', left: '51.5%' })"
+         onclick="setAttachment(this.src, { name: 'Reindeer Rudolph', scale: 0.42, top: '65%', left: '51.5%' }, this)"
          style="width:65px; cursor:pointer;">
   <div style="
   font-size:13px;
@@ -1965,21 +1967,21 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Nutcracker1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Nutcracker', scale: 0.42, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Nutcracker', scale: 0.42, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Nutcracker</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Gingerbread1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Gingerbread', scale: 0.45, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Gingerbread', scale: 0.45, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Gingerbread</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Jack%20with%20Hat1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Jack w/ Hat', scale: 0.43, top: '63%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Jack w/ Hat', scale: 0.43, top: '63%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
    <div style="
   font-size:13px;
@@ -1994,14 +1996,14 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Grinch1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Mean One', scale: 0.44, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Mean One', scale: 0.44, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Mean One</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Tree%20Cake1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Tree Cake', scale: 0.445, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Tree Cake', scale: 0.445, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Tree Cake</div>
   </div>
@@ -2018,21 +2020,21 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Softball%20V1.png/:/rs=w:364,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Softball V1', scale: 0.38, top: '65%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Softball V1', scale: 0.38, top: '65%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Softball V1</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Softball%20V2-df662ad.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Softball V2', scale: 0.33, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Softball V2', scale: 0.33, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Softball V2</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Softball%20Love%20Heart.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Softball - Heart', scale: 0.33, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Softball - Heart', scale: 0.33, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
    <div style="
   font-size:13px;
@@ -2047,14 +2049,14 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Baseball1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Baseball', scale: 0.36, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Baseball', scale: 0.36, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Baseball</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Baseball%20Love%20Heart1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Baseball - Heart', scale: 0.38, top: '63.5%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Baseball - Heart', scale: 0.38, top: '63.5%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
    <div style="
   font-size:13px;
@@ -2069,7 +2071,7 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Soccer1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Soccer Ball', scale: 0.36, top: '63.5%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Soccer Ball', scale: 0.36, top: '63.5%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
    <div style="
   font-size:13px;
@@ -2084,21 +2086,21 @@ Choose an Attachment
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Golf1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Golf', scale: 0.39, top: '66%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Golf', scale: 0.39, top: '66%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Golf</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Volleyball1.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Volleyball', scale: 0.39, top: '64%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Volleyball', scale: 0.39, top: '64%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Volleyball</div>
   </div>
 
   <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
     <img class="attachment-thumb" src="https://img1.wsimg.com/isteam/ip/e57bea54-8b62-483e-b4f4-30ae2f7988e3/Basketball.png/:/rs=w:740,cg:true,m"
-         onclick="setAttachment(this.src, { name: 'Basketball', scale: 0.33, top: '65%', left: '51%' })"
+         onclick="setAttachment(this.src, { name: 'Basketball', scale: 0.33, top: '65%', left: '51%' }, this)"
          style="width:65px; cursor:pointer;">
     <div style="font-size:13px; font-weight:600;">Basketball</div>
   </div>
@@ -2109,7 +2111,7 @@ Choose an Attachment
            scale: 0.37,
            top: '65%',
            left: '51%'
-         })"
+         }, this)"
          style="width:65px; cursor:pointer; display:block;">
     <div style="font-size:13px; font-weight:600;">Football</div>
   </div>
