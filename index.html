@@ -227,11 +227,12 @@ h5[data-title] {
 }
 
 h5[data-title]::before {
-  content: "▶";
+  content: "\25B6"; /* solid triangle, not emoji */
   display: inline-block;
   font-size: 12px;
-  transition: transform 0.2s ease;
   color: #000;
+  margin-right: 6px;
+  transition: transform 0.2s ease;
 }
 
 h5.open::before {
