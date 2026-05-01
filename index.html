@@ -289,15 +289,15 @@ h5.open::before {
   }
 }
 
-<div class="miniPreviewRow">
-  <div class="miniPreviewInline">
-    <div class="miniPreviewInner">
-      <img class="miniBackerImg" src="">
-      <img class="miniAttachmentImg" src="">
-    </div>
+<div class="miniPreviewInline">
+
+  <div class="miniPreviewInner">
+    <img class="miniBackerImg" src="">
+    <img class="miniAttachmentImg" src="">
   </div>
 
-  <div class="miniPreviewLabel">Current Selection</div>
+  <span class="miniPreviewLabel">Current Selection</span>
+
 </div>
 
 /* Row wrapper (NEW) */
@@ -319,18 +319,29 @@ h5.open::before {
 
 /* Preview container */
 .miniPreviewInline {
-  display: flex;
+  display: none;
   align-items: center;
-  justify-content: flex-start; /* 👈 important */
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+
+  width: 100%;
+  flex-basis: 100%; /* keeps it on its own line */
 }
 
-/* Label */
+@media (max-width: 768px) {
+  .miniPreviewInline {
+    display: flex !important;
+  }
+}
+
 .miniPreviewLabel {
   font-size: 13px;
   font-weight: 600;
   color: #000;
+  margin-left: 6px;
 }
-
+ 
 /* Keep your existing image styles */
 .miniPreviewInner {
   position: relative;
