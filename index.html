@@ -299,12 +299,13 @@ h5.open::before {
 </div>
 
  .miniPreviewLabel {
-  font-size: 12px;
-  font-weight: 600;
-  color: #666;
-  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;              /* 👈 make it visible */
+  margin-left: 8px;         /* 👈 push it away from image */
+  line-height: 1.2;
 }
-
+ 
  @media (max-width: 768px) {
   .miniPreviewInline {
     display: flex !important;
@@ -314,15 +315,19 @@ h5.open::before {
  /* Default (desktop) → hidden */
 .miniPreviewInline {
   display: none;
-  align-items: center;   /* 👈 aligns image + text horizontally */
+  align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 12px;               /* 👈 more breathing room */
+  margin-top: 12px;
 
   width: 100%;
-  flex-basis: 100%; /* 👈 keeps it on its own line */
+  flex-basis: 100%;
 }
 
+ .miniPreviewLabel {
+  background: yellow;
+}
+ 
 .miniPreviewInner {
   position: relative;
   width: 70px;
