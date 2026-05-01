@@ -289,14 +289,16 @@ h5.open::before {
   }
 }
 
- <div class="miniPreviewInline">
+<div class="miniPreviewInline">
+
   <div class="miniPreviewInner">
     <img class="miniBackerImg" src="">
     <img class="miniAttachmentImg" src="">
   </div>
 
-  <div class="miniPreviewLabel">Current Selection</div>
 </div>
+
+<div class="miniPreviewLabel">Current Selection</div>
 
 .miniPreviewLabel {
   background: yellow !important;
@@ -317,13 +319,18 @@ h5.open::before {
   display: none;
   align-items: center;
   justify-content: center;
-  gap: 12px;               /* 👈 more breathing room */
-  margin-top: 12px;
+  gap: 10px;
 
   width: 100%;
   flex-basis: 100%;
 }
 
+/* Wrap BOTH elements together visually */
+.miniPreviewInline,
+.miniPreviewLabel {
+  display: inline-flex;
+  align-items: center;
+}
  
 .miniPreviewInner {
   position: relative;
