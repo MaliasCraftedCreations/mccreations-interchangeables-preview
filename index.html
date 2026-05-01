@@ -289,47 +289,66 @@ h5.open::before {
   }
 }
 
-<div class="miniPreviewInline">
-
-  <div class="miniPreviewInner">
-    <img class="miniBackerImg" src="">
-    <img class="miniAttachmentImg" src="">
+<div class="miniPreviewRow">
+  <div class="miniPreviewInline">
+    <div class="miniPreviewInner">
+      <img class="miniBackerImg" src="">
+      <img class="miniAttachmentImg" src="">
+    </div>
   </div>
 
+  <div class="miniPreviewLabel">Current Selection</div>
 </div>
 
-<div class="miniPreviewLabel">Current Selection</div>
-
-.miniPreviewLabel {
-  background: yellow !important;
-  color: red !important;
-  display: block !important;
-  z-index: 9999 !important;
-  position: relative !important;
+/* Row wrapper (NEW) */
+.miniPreviewRow {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
 }
- 
- @media (max-width: 768px) {
-  .miniPreviewInline {
-    display: flex !important;
+
+/* Show on mobile */
+@media (max-width: 768px) {
+  .miniPreviewRow {
+    display: flex;
   }
 }
- 
- /* Default (desktop) → hidden */
-.miniPreviewInline {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
 
-  width: 100%;
-  flex-basis: 100%;
+/* Preview container */
+.miniPreviewInline {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* 👈 important */
 }
 
-/* Wrap BOTH elements together visually */
-.miniPreviewInline,
+/* Label */
 .miniPreviewLabel {
-  display: inline-flex;
-  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* Keep your existing image styles */
+.miniPreviewInner {
+  position: relative;
+  width: 70px;
+}
+
+.miniBackerImg {
+  width: 100%;
+  display: block;
+}
+
+.miniAttachmentImg {
+  position: absolute;
+  top: 65%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  pointer-events: none;
 }
  
 .miniPreviewInner {
