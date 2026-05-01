@@ -298,12 +298,12 @@ h5.open::before {
   <div class="miniPreviewLabel">Current Selection</div>
 </div>
 
- .miniPreviewLabel {
-  font-size: 13px;
-  font-weight: 700;
-  color: #000;              /* 👈 make it visible */
-  margin-left: 8px;         /* 👈 push it away from image */
-  line-height: 1.2;
+.miniPreviewLabel {
+  background: yellow !important;
+  color: red !important;
+  display: block !important;
+  z-index: 9999 !important;
+  position: relative !important;
 }
  
  @media (max-width: 768px) {
@@ -324,9 +324,6 @@ h5.open::before {
   flex-basis: 100%;
 }
 
- .miniPreviewLabel {
-  background: yellow;
-}
  
 .miniPreviewInner {
   position: relative;
