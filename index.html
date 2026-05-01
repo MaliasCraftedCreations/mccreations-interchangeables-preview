@@ -289,13 +289,38 @@ h5.open::before {
   }
 }
 
+ <div class="miniPreviewInline">
+  <div class="miniPreviewInner">
+    <img class="miniBackerImg" src="">
+    <img class="miniAttachmentImg" src="">
+  </div>
+
+  <div class="miniPreviewLabel">Current Selection</div>
+</div>
+
+ .miniPreviewLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  white-space: nowrap;
+}
+
+ @media (max-width: 768px) {
+  .miniPreviewInline {
+    display: flex;
+  }
+}
+ 
  /* Default (desktop) → hidden */
 .miniPreviewInline {
   display: none;
+  align-items: center;   /* 👈 aligns image + text horizontally */
   justify-content: center;
+  gap: 10px;
   margin-top: 10px;
-  width: 100%;        /* 👈 forces full row */
-  flex-basis: 100%;  /* 👈 forces it to break onto new line */
+
+  width: 100%;
+  flex-basis: 100%; /* 👈 keeps it on its own line */
 }
 
 .miniPreviewInner {
