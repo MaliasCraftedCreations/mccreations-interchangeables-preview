@@ -291,12 +291,14 @@ h5.open::before {
 
 <div class="miniPreviewInline">
 
+  <span class="miniPreviewLabel">
+    Current<br>Selection:
+  </span>
+
   <div class="miniPreviewInner">
     <img class="miniBackerImg" src="">
     <img class="miniAttachmentImg" src="">
   </div>
-
-  <span class="miniPreviewLabel">Current Selection</span>
 
 </div>
 
@@ -320,13 +322,9 @@ h5.open::before {
 /* Preview container */
 .miniPreviewInline {
   display: none;
-  align-items: center;
+  align-items: center;   /* 👈 keeps preview vertically centered next to text */
   justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-
-  width: 100%;
-  flex-basis: 100%;
+  gap: 8px;
 }
 
 @media (max-width: 768px) {
@@ -336,10 +334,11 @@ h5.open::before {
 }
 
 .miniPreviewLabel {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
-  color: #000;
-  margin-left: 6px;
+  color: #555;
+  line-height: 1.1;     /* 👈 tight vertical spacing */
+  text-align: right;    /* 👈 keeps it snug against the preview */
 }
  
 /* Keep your existing image styles */
