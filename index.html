@@ -104,10 +104,9 @@ font-weight:600;
   font-size: 12px;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.25s ease;
+  transition: opacity 0.2s ease;
   z-index: 99999;
 ">
-  Copied!
 </div>
 </div>
 </div>
@@ -2586,8 +2585,16 @@ Thank you! 🤍`;
     });
   };
 
- window.showToast = function (message) {
-  alert(message);
+window.showToast = function (message) {
+  const toast = document.getElementById("toastMessage");
+  if (!toast) return;
+
+  toast.textContent = message;
+  toast.style.opacity = "1";
+
+  setTimeout(() => {
+    toast.style.opacity = "0";
+  }, 1500);
 };
   
 function updateAllMiniPreviews(backerSrc, attachmentSrc, options = {}) {
