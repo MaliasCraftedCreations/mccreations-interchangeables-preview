@@ -2543,17 +2543,17 @@ function getOrderText() {
   
 (function () {
 
-  window.copyOrderOnly = function () {
+window.copyOrderOnly = function () {
 
-let orderItems = "No items selected";
+  let orderItems = "No items selected";
 
-try {
   if (typeof getOrderText === "function") {
-    orderItems = getOrderText();
+    try {
+      orderItems = getOrderText();
+    } catch (e) {}
   }
-} catch (e) {}
 
-const text = `Hi!   
+  const text = `Hi!   
 
 My name is ________.
 
@@ -2566,24 +2566,19 @@ ${orderItems}
 
 Thank you! 🤍`;
 
-    // Try modern clipboard first
-    navigator.clipboard.writeText(text).then(() => {
-      window.showToast("Copied! Paste into your message 💬");
-    }).catch(() => {
+  // 🔥 ALWAYS WORKING COPY METHOD
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  document.body.appendChild(textarea);
 
-      // 🔥 FALLBACK METHOD (works everywhere)
-      const textarea = document.createElement("textarea");
-      textarea.value = text;
-      document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
 
-      textarea.select();
-      document.execCommand("copy");
+  document.body.removeChild(textarea);
 
-      document.body.removeChild(textarea);
-
-      window.showToast("Copied! Paste into your message 💬");
-    });
-  };
+  // 🔥 GUARANTEED FEEDBACK
+  alert("Copied! Paste into your message 💬");
+};
 
 window.showToast = function (message) {
   const toast = document.getElementById("toastMessage");
