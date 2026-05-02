@@ -2586,23 +2586,10 @@ Thank you! 🤍`;
     });
   };
 
-  window.showToast = function (message) {
-    const toast = document.getElementById("toastMessage");
-    if (!toast) return;
-
-    toast.textContent = message;
-
-    toast.style.opacity = "1";
-    toast.style.transform = "translateX(-50%) translateY(0)";
-
-    setTimeout(() => {
-      toast.style.opacity = "0";
-      toast.style.transform = "translateX(-50%) translateY(6px)";
-    }, 1500);
-  };
-
-})();
- 
+ window.showToast = function (message) {
+  alert(message);
+};
+  
 function updateAllMiniPreviews(backerSrc, attachmentSrc, options = {}) {
   const isMobile = window.innerWidth <= 768;
 
