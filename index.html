@@ -73,22 +73,20 @@ font-weight:600;
       📋 Copy Order
     </button>
 
-<a href="https://mail.google.com/mail/?view=cm&fs=1&to=maliascraftedcreations@gmail.com&subject=Interchangeable%20Order"
-   target="_blank"
-   rel="noopener noreferrer"
-   style="
-      display:inline-block;
-      padding:6px 12px;
-      border-radius:14px;
-      background:#a97c6b;
-      color:#fff;
-      font-size:13px;
-  font-family: inherit;   
-      font-weight: 500;       
-      text-decoration:none;
-   ">
+<button onclick="sendOrderEmail()" 
+  style="
+    padding:6px 12px;
+    border:none;
+    border-radius:14px;
+    background:#a97c6b;
+    color:#fff;
+    cursor:pointer;
+    font-size:13px;
+    font-family: inherit;
+    font-weight: 500;
+  ">
   ✉️ Email Order
-</a>
+</button>
 
   </div>
 
@@ -2573,7 +2571,6 @@ Thank you! 🤍`;
 
 function sendOrderEmail() {
   const email = "maliascraftedcreations@gmail.com";
-
   const subject = encodeURIComponent("Interchangeable Order");
 
   const orderText = getOrderText() || "No items selected";
@@ -2599,9 +2596,9 @@ Thank you! 🤍`
     + "&subject=" + subject
     + "&body=" + body;
 
-  window.open(url, "_blank");
+  window.open(url, "_blank", "noopener,noreferrer");
 }
-
+ 
 function showToast(message) {
   const toast = document.getElementById("toastMessage");
   if (!toast) return;
