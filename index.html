@@ -291,9 +291,10 @@ h5.open::before {
 
 <div class="miniPreviewInline">
 
-  <span class="miniPreviewLabel">
-    Current<br>Selection:
-  </span>
+<span class="miniPreviewLabel">
+  <span>Current</span>
+  <span>Selection:</span>
+</span>
 
   <div class="miniPreviewInner">
     <img class="miniBackerImg" src="">
@@ -322,9 +323,12 @@ h5.open::before {
 /* Preview container */
 .miniPreviewInline {
   display: none;
-  align-items: center;   /* 👈 keeps preview vertically centered next to text */
+  align-items: center;
   justify-content: center;
   gap: 8px;
+
+  width: 100%;
+  flex-basis: 100%;
 }
 
 @media (max-width: 768px) {
@@ -333,18 +337,20 @@ h5.open::before {
   }
 }
 
+/* 👇 FORCE order */
 .miniPreviewLabel {
-  font-size: 11px;
+  order: 1;
+ display: flex;
+  flex-direction: column;  /* 👈 THIS forces stacking */
+  align-items: flex-end;  /* keeps it tight to preview */
+  font-size: 12px;
   font-weight: 600;
-  color: #555;
-  line-height: 1.1;     /* 👈 tight vertical spacing */
-  text-align: right;    /* 👈 keeps it snug against the preview */
+  color: #000;            /* 👈 fixes your grey issue */
+  line-height: 1.1;
 }
- 
-/* Keep your existing image styles */
+
 .miniPreviewInner {
-  position: relative;
-  width: 70px;
+  order: 2;
 }
 
 .miniBackerImg {
@@ -861,12 +867,15 @@ Choose an Attachment
 </div>
 
 <div class="miniPreviewInline">
+ <span class="miniPreviewLabel">
+  <span>Current</span>
+  <span>Selection:</span>
+</span>
   <div class="miniPreviewInner">
     <img class="miniBackerImg" src="">
     <img class="miniAttachmentImg" src="">
   </div>
 
-  <span class="miniPreviewLabel">Current Selection</span>
 </div>
  
 </div>
@@ -1340,12 +1349,15 @@ Choose an Attachment
   </div>
 
 <div class="miniPreviewInline">
+ <span class="miniPreviewLabel">
+  <span>Current</span>
+  <span>Selection:</span>
+</span>
   <div class="miniPreviewInner">
     <img class="miniBackerImg" src="">
     <img class="miniAttachmentImg" src="">
   </div>
 
-  <span class="miniPreviewLabel">Current Selection</span>
 </div>
  
 </div>
@@ -1632,12 +1644,15 @@ Choose an Attachment
   </div>
 
 <div class="miniPreviewInline">
+ <span class="miniPreviewLabel">
+  <span>Current</span>
+  <span>Selection:</span>
+</span>
   <div class="miniPreviewInner">
     <img class="miniBackerImg" src="">
     <img class="miniAttachmentImg" src="">
   </div>
 
-  <span class="miniPreviewLabel">Current Selection</span>
 </div>
  
 </div>
@@ -1765,12 +1780,15 @@ Choose an Attachment
   </div>
 
 <div class="miniPreviewInline">
+ <span class="miniPreviewLabel">
+  <span>Current</span>
+  <span>Selection:</span>
+</span>
   <div class="miniPreviewInner">
     <img class="miniBackerImg" src="">
     <img class="miniAttachmentImg" src="">
   </div>
 
-  <span class="miniPreviewLabel">Current Selection</span>
 </div>
  
 </div>
@@ -1868,12 +1886,15 @@ Choose an Attachment
   </div>
 
 <div class="miniPreviewInline">
+ <span class="miniPreviewLabel">
+  <span>Current</span>
+  <span>Selection:</span>
+</span>
   <div class="miniPreviewInner">
     <img class="miniBackerImg" src="">
     <img class="miniAttachmentImg" src="">
   </div>
 
-  <span class="miniPreviewLabel">Current Selection</span>
 </div>
  
 </div>
@@ -2171,12 +2192,15 @@ Choose an Attachment
   </div>
 
 <div class="miniPreviewInline">
+ <span class="miniPreviewLabel">
+  <span>Current</span>
+  <span>Selection:</span>
+</span>
   <div class="miniPreviewInner">
     <img class="miniBackerImg" src="">
     <img class="miniAttachmentImg" src="">
   </div>
 
-  <span class="miniPreviewLabel">Current Selection</span>
 </div>
  
 </div>
@@ -2288,12 +2312,15 @@ Choose an Attachment
   </div>
 
 <div class="miniPreviewInline">
+ <span class="miniPreviewLabel">
+  <span>Current</span>
+  <span>Selection:</span>
+</span>
   <div class="miniPreviewInner">
     <img class="miniBackerImg" src="">
     <img class="miniAttachmentImg" src="">
   </div>
 
-  <span class="miniPreviewLabel">Current Selection</span>
 </div>
  
 </div>
