@@ -2583,7 +2583,14 @@ ${getOrderText()}
 
 Thank you! 🤍`);
 
-  window.location.href = "https://mail.google.com/mail/?view=cm&fs=1&to=maliascraftedcreations@gmail.com" + subject + "&body=" + body;
+ const email = "maliascraftedcreations@gmail.com";
+
+  const url = "https://mail.google.com/mail/?view=cm&fs=1"
+    + "&to=" + email
+    + "&subject=" + subject
+    + "&body=" + body;
+
+  window.open(url, "_blank");
 }
 
 function showToast(message) {
