@@ -2544,27 +2544,35 @@ function getOrderText() {
   
 (function () {
 
-  // Make function global so GoDaddy can see it
   window.copyOrderOnly = function () {
 
+    let text = "No order selected";
+
     try {
-      const text = (typeof getOrderText === "function")
-        ? getOrderText()
-        : "No order selected";
+      if (typeof getOrderText === "function") {
+        text = getOrderText();
+      }
+    } catch (e) {}
 
-      navigator.clipboard.writeText(text).then(() => {
-        window.showToast("Copied! Paste into your message 💬");
-      }).catch(() => {
-        window.showToast("Copy failed — try again");
-      });
+    // Try modern clipboard first
+    navigator.clipboard.writeText(text).then(() => {
+      window.showToast("Copied! Paste into your message 💬");
+    }).catch(() => {
 
-    } catch (err) {
-      console.log("copyOrderOnly error:", err);
-      alert("Copy system error");
-    }
+      // 🔥 FALLBACK METHOD (works everywhere)
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      document.body.appendChild(textarea);
+
+      textarea.select();
+      document.execCommand("copy");
+
+      document.body.removeChild(textarea);
+
+      window.showToast("Copied! Paste into your message 💬");
+    });
   };
 
-  // Toast function
   window.showToast = function (message) {
     const toast = document.getElementById("toastMessage");
     if (!toast) return;
