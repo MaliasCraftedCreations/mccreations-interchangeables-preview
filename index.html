@@ -73,23 +73,16 @@ font-weight:600;
       📋 Copy Order
     </button>
 
-<button onclick="sendOrderEmail()" 
-  style="
-      padding:6px 12px;
-      border:none;
-      border-radius:14px;
-      background:#a97c6b;
-      color:#fff;
-      cursor:pointer;
-      font-size:13px;
-  ">
-  ✉️ Email Order
-</button>
 
   </div>
 
   <!-- Social links -->
   <div style="font-size:12px;">
+
+    <a href="https://shopmccreations.com/dh-int-order" target="_blank" style="color:#4a2f27;">
+    Email
+  </a>
+     &nbsp;•&nbsp;
     <a href="https://www.instagram.com/maliascraftedcreations/" target="_blank" style="color:#4a2f27;">
       Instagram
     </a>
@@ -2554,7 +2547,7 @@ const text = `Hi!
 
 My name is ________.
 
-I’m interested in placing an order!  
+I’m interested in placing an order for Door Hanger Interchangeables!  
 
 Here’s what I picked out:
 ${getOrderText()}
@@ -2567,35 +2560,6 @@ Thank you! 🤍`;
   });
 }
 
-function sendOrderEmail() {
-  const email = "maliascraftedcreations@gmail.com";
-  const subject = encodeURIComponent("Interchangeable Order");
-
-  const orderText = getOrderText() || "No items selected";
-
-  const body = encodeURIComponent(
-`Hi!
-
-My name is ________.
-
-I’m interested in placing an order!
-
-Here’s what I picked out:
-${orderText}
-
-(Add any details, color requests, or questions here)
-
-Thank you! 🤍`
-  );
-
-  const url =
-    "https://mail.google.com/mail/?view=cm&fs=1"
-    + "&to=" + email
-    + "&subject=" + subject
-    + "&body=" + body;
-
-  window.open(url, "_blank", "noopener,noreferrer");
-}
  
 function showToast(message) {
   const toast = document.getElementById("toastMessage");
