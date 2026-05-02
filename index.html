@@ -2541,33 +2541,46 @@ function getOrderText() {
   return allItems.map(item => "- " + item).join("\n");
 }
 
-function copyOrderOnly() {
-  alert("Button clicked");
+  
+(function () {
 
-  const text = "TEST COPY WORKS";
+  // Make function global so GoDaddy can see it
+  window.copyOrderOnly = function () {
 
-  navigator.clipboard.writeText(text).then(() => {
-    alert("Copied to clipboard");
-  }).catch(err => {
-    alert("Clipboard failed: " + err);
-  });
-}
+    try {
+      const text = (typeof getOrderText === "function")
+        ? getOrderText()
+        : "No order selected";
 
- 
-function showToast(message) {
-  const toast = document.getElementById("toastMessage");
-  if (!toast) return;
+      navigator.clipboard.writeText(text).then(() => {
+        window.showToast("Copied! Paste into your message 💬");
+      }).catch(() => {
+        window.showToast("Copy failed — try again");
+      });
 
-  toast.textContent = message;
+    } catch (err) {
+      console.log("copyOrderOnly error:", err);
+      alert("Copy system error");
+    }
+  };
 
-  toast.style.opacity = "1";
-  toast.style.transform = "translateY(0)";
+  // Toast function
+  window.showToast = function (message) {
+    const toast = document.getElementById("toastMessage");
+    if (!toast) return;
 
-  setTimeout(() => {
-    toast.style.opacity = "0";
-    toast.style.transform = "translateY(6px)";
-  }, 1500);
-}
+    toast.textContent = message;
+
+    toast.style.opacity = "1";
+    toast.style.transform = "translateX(-50%) translateY(0)";
+
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      toast.style.transform = "translateX(-50%) translateY(6px)";
+    }, 1500);
+  };
+
+})();
  
 function updateAllMiniPreviews(backerSrc, attachmentSrc, options = {}) {
   const isMobile = window.innerWidth <= 768;
