@@ -83,6 +83,8 @@ font-weight:600;
       background:#a97c6b;
       color:#fff;
       font-size:13px;
+  font-family: inherit;   
+      font-weight: 500;       
       text-decoration:none;
    ">
   ✉️ Email Order
@@ -2570,24 +2572,29 @@ Thank you! 🤍`;
 }
 
 function sendOrderEmail() {
+  const email = "maliascraftedcreations@gmail.com";
+
   const subject = encodeURIComponent("Interchangeable Order");
 
-  const body = encodeURIComponent(`Hi!   
+  const orderText = getOrderText() || "No items selected";
+
+  const body = encodeURIComponent(
+`Hi!
 
 My name is ________.
 
 I’m interested in placing an order!
 
 Here’s what I picked out:
-${getOrderText()}
+${orderText}
 
 (Add any details, color requests, or questions here)
 
-Thank you! 🤍`);
+Thank you! 🤍`
+  );
 
- const email = "maliascraftedcreations@gmail.com";
-
-  const url = "https://mail.google.com/mail/?view=cm&fs=1"
+  const url =
+    "https://mail.google.com/mail/?view=cm&fs=1"
     + "&to=" + email
     + "&subject=" + subject
     + "&body=" + body;
