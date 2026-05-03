@@ -61,7 +61,8 @@ font-weight:600;
     flex-wrap:wrap;
   ">
 
-<button onclick="alert('TEST CLICK WORKS')" 
+<button onclick="copyOrderOnly()" 
+  class="copy-btn"
   style="
   padding:6px 12px;
   border:none;
@@ -390,6 +391,33 @@ h5.open::before {
           drop-shadow(0 0 10px rgba(255,255,255,0.6));
   transform: scale(1.08);
 }
+
+
+  
+/* Press feedback (instant, works everywhere) */
+.copy-btn:active {
+  transform: scale(0.96);
+  opacity: 0.8;
+}
+
+/* Optional: tiny flash effect on click */
+.copy-btn:active::after {
+  content: "Copied!";
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #b8846f;
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.copy-btn {
+  position: relative; /* needed for the label */
+}
+
 </style>
 
 
