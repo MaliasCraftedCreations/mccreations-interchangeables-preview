@@ -1,15 +1,30 @@
-<div id="orderBox" style="
-  position: relative;
-  overflow: visible;
-  max-width:500px;
+<div id="cartToggle" onclick="toggleCart()" style="
+  font-size:14px;
+  padding:10px 14px;
+  border-radius:14px;
+  background:#e2c2b3;
+  color:#4a2f27;
+  border:2px dashed #c89f8d;
+  cursor:pointer;
+  text-align:center;
   margin:10px auto;
-  padding:12px;
+  max-width:500px;
+">
+  🛒 Your Cart (tap to view)
+</div>
+
+<div id="orderBox" style="
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.3s ease;
+  max-width:500px;
+  margin:0 auto;
+  padding:0 12px;
   border-radius:12px;
   background:#d6b1a1;
   border:2px dashed #c89f8d;
   color:#4a2f27;
   font-size:14px;
-  display:none;
 ">
 
   <strong>Your Order Selections:</strong>
@@ -47,7 +62,7 @@ overflow: hidden;
   text-align:center;
   font-weight:600;
 ">
-  Ready to order? Here's how! 👇<br><br>
+  Ready to order? Here's how! 👇<br>
   Important: <strong>Please do not send screenshots❗</strong><br><br>
 
   1. Tap <strong>“Copy Order”</strong><br>
@@ -2609,6 +2624,11 @@ function addSelectedAttachment() {
 
 <script>
 function getOrderText() {
+  
+const box = document.getElementById("orderBox");
+box.style.maxHeight = box.scrollHeight + "px";
+cartOpen = true;
+  
   const allItems = [
     ...backers.map(item => "Backer: " + item),
     ...attachments.map(item => "Attachment: " + item)
@@ -2721,4 +2741,24 @@ function updateAllMiniPreviews(backerSrc, attachmentSrc, options = {}) {
   });
 }
 
+</script>
+
+  <script>
+let cartOpen = false;
+
+function toggleCart() {
+  const box = document.getElementById("orderBox");
+
+  // ❌ If cart has items, don't allow closing
+  const hasItems = document.getElementById("orderList").children.length > 0;
+  if (hasItems && cartOpen) return;
+
+  if (cartOpen) {
+    box.style.maxHeight = "0px";
+    cartOpen = false;
+  } else {
+    box.style.maxHeight = box.scrollHeight + "px";
+    cartOpen = true;
+  }
+}
 </script>
