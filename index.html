@@ -104,11 +104,9 @@ font-weight:600;
   font-size: 12px;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.25s ease;
   z-index: 99999;
 ">
   Copied!
-</div>
 </div>
 </div>
 
@@ -389,6 +387,30 @@ h5.open::before {
   filter: drop-shadow(0 0 5px rgba(255,255,255,0.8))
           drop-shadow(0 0 10px rgba(255,255,255,0.6));
   transform: scale(1.08);
+}
+</style>
+
+  <style>
+#toastMessage.show {
+  animation: toastFade 1.5s ease forwards;
+}
+
+@keyframes toastFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
 }
 </style>
 
@@ -2567,22 +2589,16 @@ Thank you! 🤍`;
 
     // Try modern clipboard first
     navigator.clipboard.writeText(text).then(() => {
-      window.showToast("Copied! Paste into your message 💬");
-    }).catch(() => {
+  window.showToast = function (message) {
+  const toast = document.getElementById("toastMessage");
+  if (!toast) return;
 
-      // 🔥 FALLBACK METHOD (works everywhere)
-      const textarea = document.createElement("textarea");
-      textarea.value = text;
-      document.body.appendChild(textarea);
+  toast.textContent = message;
 
-      textarea.select();
-      document.execCommand("copy");
-
-      document.body.removeChild(textarea);
-
-      window.showToast("Copied! Paste into your message 💬");
-    });
-  };
+  toast.classList.remove("show");
+  void toast.offsetWidth; // restart animation
+  toast.classList.add("show");
+};
 
   
 window.addEventListener("load", function () {
