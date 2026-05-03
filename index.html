@@ -2632,11 +2632,7 @@ function addSelectedAttachment() {
 
 <script>
 function getOrderText() {
-  
-const box = document.getElementById("orderBox");
-box.style.maxHeight = box.scrollHeight + "px";
-cartOpen = true;
-  
+
   const allItems = [
     ...backers.map(item => "Backer: " + item),
     ...attachments.map(item => "Attachment: " + item)
