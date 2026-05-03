@@ -2583,13 +2583,25 @@ Thank you! 🤍`;
       window.showToast("Copied! Paste into your message 💬");
     });
   };
+</script>
+  
+<script>
+window.addEventListener("load", function () {
 
   window.showToast = function (message) {
+
     const toast = document.getElementById("toastMessage");
     if (!toast) return;
 
     toast.textContent = message;
 
+    toast.style.transition = "none";
+    toast.style.opacity = "0";
+    toast.style.transform = "translateX(-50%) translateY(6px)";
+
+    void toast.offsetWidth; // force refresh
+
+    toast.style.transition = "all 0.25s ease";
     toast.style.opacity = "1";
     toast.style.transform = "translateX(-50%) translateY(0)";
 
@@ -2597,10 +2609,13 @@ Thank you! 🤍`;
       toast.style.opacity = "0";
       toast.style.transform = "translateX(-50%) translateY(6px)";
     }, 1500);
+
   };
 
-})();
-  
+});
+</script>
+
+  <script>
 function updateAllMiniPreviews(backerSrc, attachmentSrc, options = {}) {
   const isMobile = window.innerWidth <= 768;
 
