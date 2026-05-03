@@ -2546,13 +2546,24 @@ function getOrderText() {
 
   window.copyOrderOnly = function () {
 
-    let text = "No order selected";
+let orderItems = "No items selected";
 
-    try {
-      if (typeof getOrderText === "function") {
-        text = getOrderText();
-      }
-    } catch (e) {}
+if (typeof getOrderText === "function") {
+  orderItems = getOrderText();
+}
+
+const text = `Hi!   
+
+My name is ________.
+
+I’m interested in placing an order for Door Hanger Interchangeables!  
+
+Here’s what I picked out:
+${orderItems}
+
+(Feel free to add any additional details or questions here!)  
+
+Thank you! 🤍`;
 
     // Try modern clipboard first
     navigator.clipboard.writeText(text).then(() => {
