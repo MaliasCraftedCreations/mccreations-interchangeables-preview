@@ -104,9 +104,11 @@ font-weight:600;
   font-size: 12px;
   opacity: 0;
   pointer-events: none;
+  transition: all 0.25s ease;
   z-index: 99999;
 ">
   Copied!
+</div>
 </div>
 </div>
 
@@ -169,7 +171,7 @@ font-weight:600;
   }
 
 }
- 
+
 @media (max-width: 768px) {
 
   .backers-container .backer-item {
@@ -178,7 +180,7 @@ font-weight:600;
   }
 
 }
- 
+
 @media (max-width: 768px) {
 
   .attachment-thumb {
@@ -198,7 +200,7 @@ font-weight:600;
   }
 
 }
- 
+
 /* Force GoDaddy HTML container to auto-size */
 html, body {
   overflow-x: hidden;
@@ -269,7 +271,7 @@ h5[data-title]::before {
 h5.open::before {
   transform: rotate(90deg) translateY(1px);
 }
- 
+
  /* Mobile-only side spacing for better scrolling */
 @media (max-width: 768px) {
   .preview-wrapper {
@@ -357,7 +359,7 @@ h5.open::before {
   width: 30%;
   pointer-events: none;
 }
- 
+
 .miniPreviewInner {
   position: relative;
   width: 70px;
@@ -387,30 +389,6 @@ h5.open::before {
   filter: drop-shadow(0 0 5px rgba(255,255,255,0.8))
           drop-shadow(0 0 10px rgba(255,255,255,0.6));
   transform: scale(1.08);
-}
-
-  
-
-#toastMessage.show {
-  animation: toastFade 1.5s ease forwards;
-}
-
-@keyframes toastFade {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(10px);
-  }
-  10% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(10px);
-  }
 }
 </style>
 
@@ -892,7 +870,7 @@ Choose an Attachment
   </div>
 
 </div>
- 
+
 </div>
 
 <!-- SPRING -->
@@ -1374,7 +1352,7 @@ Choose an Attachment
   </div>
 
 </div>
- 
+
 </div>
 
 <!-- SUMMER -->
@@ -1669,7 +1647,7 @@ Choose an Attachment
   </div>
 
 </div>
- 
+
 </div>
 
 <!-- FALL -->
@@ -1805,7 +1783,7 @@ Choose an Attachment
   </div>
 
 </div>
- 
+
 </div>
 
 <!-- HALLOWEEN -->
@@ -1911,7 +1889,7 @@ Choose an Attachment
   </div>
 
 </div>
- 
+
 </div>
 
 <!-- WINTER -->
@@ -2217,7 +2195,7 @@ Choose an Attachment
   </div>
 
 </div>
- 
+
 </div>
 
 <!-- SPORTS -->
@@ -2337,7 +2315,7 @@ Choose an Attachment
   </div>
 
 </div>
- 
+
 </div>
 
 <script>
@@ -2365,7 +2343,7 @@ function setBacker(src, name, el) {
 
   // add glow to clicked one
   if (el) el.classList.add('selected-thumb');
- 
+
   document.getElementById('backerPreview').src = src;
   document.getElementById('backerName').textContent = name;
 
@@ -2373,10 +2351,10 @@ adjustOpenAccordions();
 
   // Auto-scroll on mobile
   scrollToBacker();
- 
+
 updateAllMiniPreviews(src, document.getElementById('attachmentPreview').src);
 }
- 
+
 function scrollToBacker() {
   // Only scroll on mobile
   if (window.innerWidth <= 768) { // match your mobile breakpoint
@@ -2399,7 +2377,7 @@ function setAttachment(src, options = {}, el) {
 
   // add glow to clicked one
   if (el) el.classList.add('selected-thumb');
- 
+
   const img = document.getElementById('attachmentPreview');
   const backer = document.getElementById('backerPreview');
 
@@ -2432,7 +2410,7 @@ function setAttachment(src, options = {}, el) {
       block: "center"
     });
   }
- 
+
 updateAllMiniPreviews(
   document.getElementById('backerPreview').src,
   src,
@@ -2563,13 +2541,12 @@ function getOrderText() {
   return allItems.map(item => "- " + item).join("\n");
 }
 
-  
+
 (function () {
 
   window.copyOrderOnly = function () {
 
-let orderItems = "No items selected";
-
+ let orderItems = "No items selected";
 if (typeof getOrderText === "function") {
   orderItems = getOrderText();
 }
@@ -2589,34 +2566,29 @@ Thank you! 🤍`;
 
     // Try modern clipboard first
     navigator.clipboard.writeText(text).then(() => {
+      window.showToast("Copied! Paste into your message 💬");
+    }).catch(() => {
+
+      // 🔥 FALLBACK METHOD (works everywhere)
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      document.body.appendChild(textarea);
+
+      textarea.select();
+      document.execCommand("copy");
+
+      document.body.removeChild(textarea);
+
+      window.showToast("Copied! Paste into your message 💬");
+    });
+  };
+
   window.showToast = function (message) {
-  const toast = document.getElementById("toastMessage");
-  if (!toast) return;
-
-  toast.textContent = message;
-
-  toast.classList.remove("show");
-  void toast.offsetWidth; // restart animation
-  toast.classList.add("show");
-};
-
-  
-window.addEventListener("load", function () {
-
-  window.showToast = function (message) {
-
     const toast = document.getElementById("toastMessage");
     if (!toast) return;
 
     toast.textContent = message;
 
-    toast.style.transition = "none";
-    toast.style.opacity = "0";
-    toast.style.transform = "translateX(-50%) translateY(6px)";
-
-    void toast.offsetWidth; // force refresh
-
-    toast.style.transition = "all 0.25s ease";
     toast.style.opacity = "1";
     toast.style.transform = "translateX(-50%) translateY(0)";
 
@@ -2624,10 +2596,9 @@ window.addEventListener("load", function () {
       toast.style.opacity = "0";
       toast.style.transform = "translateX(-50%) translateY(6px)";
     }, 1500);
-
   };
 
-});
+})();
 
 function updateAllMiniPreviews(backerSrc, attachmentSrc, options = {}) {
   const isMobile = window.innerWidth <= 768;
@@ -2658,5 +2629,5 @@ function updateAllMiniPreviews(backerSrc, attachmentSrc, options = {}) {
     }
   });
 }
- 
+
 </script>
