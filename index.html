@@ -93,17 +93,19 @@ font-weight:600;
     </a>
   </div>
 <div id="toastMessage" style="
-  margin-top:10px;
-  display:inline-block;
-  background:#b8846f;
-  box-shadow:0 2px 6px rgba(0,0,0,0.15);
-  color:#fff;
-  padding:6px 12px;
-  border-radius:14px;
-  font-size:12px;
-  opacity:0;
-  transform:translateY(6px);
-  transition:all 0.25s ease;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #b8846f;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 99999;
 ">
   Copied!
 </div>
@@ -2542,54 +2544,51 @@ function getOrderText() {
   
 (function () {
 
-window.copyOrderOnly = function () {
+  window.copyOrderOnly = function () {
 
-  let orderItems = "No items selected";
+    let text = "No order selected";
 
-  if (typeof getOrderText === "function") {
     try {
-      orderItems = getOrderText();
+      if (typeof getOrderText === "function") {
+        text = getOrderText();
+      }
     } catch (e) {}
-  }
 
-  const text = `Hi!   
+    // Try modern clipboard first
+    navigator.clipboard.writeText(text).then(() => {
+      window.showToast("Copied! Paste into your message 💬");
+    }).catch(() => {
 
-My name is ________.
+      // 🔥 FALLBACK METHOD (works everywhere)
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      document.body.appendChild(textarea);
 
-I’m interested in placing an order for Door Hanger Interchangeables!  
+      textarea.select();
+      document.execCommand("copy");
 
-Here’s what I picked out:
-${orderItems}
+      document.body.removeChild(textarea);
 
-(Feel free to add any additional details or questions here!)  
+      window.showToast("Copied! Paste into your message 💬");
+    });
+  };
 
-Thank you! 🤍`;
+  window.showToast = function (message) {
+    const toast = document.getElementById("toastMessage");
+    if (!toast) return;
 
-  // 🔥 ALWAYS WORKING COPY METHOD
-  const textarea = document.createElement("textarea");
-  textarea.value = text;
-  document.body.appendChild(textarea);
+    toast.textContent = message;
 
-  textarea.select();
-  document.execCommand("copy");
+    toast.style.opacity = "1";
+    toast.style.transform = "translateX(-50%) translateY(0)";
 
-  document.body.removeChild(textarea);
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      toast.style.transform = "translateX(-50%) translateY(6px)";
+    }, 1500);
+  };
 
-  // 🔥 GUARANTEED FEEDBACK
-  alert("Copied! Paste into your message 💬");
-};
-
-window.showToast = function (message) {
-  const toast = document.getElementById("toastMessage");
-  if (!toast) return;
-
-  toast.textContent = message;
-  toast.style.opacity = "1";
-
-  setTimeout(() => {
-    toast.style.opacity = "0";
-  }, 1500);
-};
+})();
   
 function updateAllMiniPreviews(backerSrc, attachmentSrc, options = {}) {
   const isMobile = window.innerWidth <= 768;
