@@ -394,28 +394,54 @@ h5.open::before {
 
 
   
-/* Press feedback (instant, works everywhere) */
-.copy-btn:active {
-  transform: scale(0.96);
-  opacity: 0.8;
+/*COPY MESSAGE*/
+.copy-btn {
+  position: relative;
 }
 
-/* Optional: tiny flash effect on click */
+/* Button press feel */
+.copy-btn:active {
+  transform: scale(0.96);
+  opacity: 0.85;
+}
+
+/* Message BELOW button */
 .copy-btn:active::after {
-  content: "Copied!";
+  content: "Copied! Paste into your message 💬";
   position: absolute;
-  top: -24px;
+  top: 100%;              /* 👈 pushes BELOW button */
+  margin-top: 10px;       /* 👈 space from button */
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(10px);
+
   background: #b8846f;
   color: #fff;
-  font-size: 11px;
-  padding: 3px 8px;
-  border-radius: 10px;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 14px;
   white-space: nowrap;
+
+  opacity: 0;
+  animation: copyFade 2.2s ease forwards; /* 👈 longer + smooth */
 }
-.copy-btn {
-  position: relative; /* needed for the label */
+
+/* Animation */
+@keyframes copyFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  15% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
 }
 
 </style>
