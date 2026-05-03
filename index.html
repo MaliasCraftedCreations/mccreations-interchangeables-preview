@@ -2598,7 +2598,18 @@ function updateOrderDisplay() {
     list.appendChild(li);
   });
 
-  box.style.display = combined.length > 0 ? "block" : "none";
+ const hasItems = combined.length > 0;
+
+box.style.display = hasItems ? "block" : "none";
+
+if (hasItems) {
+  // 👇 Auto open + lock open
+  box.style.maxHeight = box.scrollHeight + "px";
+  cartOpen = true;
+} else {
+  // 👇 Reset when empty
+  box.style.maxHeight = "0px";
+  cartOpen = false;
 }
 </script>
 
