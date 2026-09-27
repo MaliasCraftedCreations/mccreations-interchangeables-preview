@@ -2484,15 +2484,10 @@ updateAllMiniPreviews(src, document.getElementById('attachmentPreview').src);
 }
 
 function scrollToBacker() {
-  // Only scroll on mobile
-  if (window.innerWidth <= 768) { // match your mobile breakpoint
-    const preview = document.getElementById('previewArea');
-    if (preview) {
-      preview.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-      });
-    }
+  // Ask the PARENT page to scroll — scrollIntoView() can only scroll
+  // inside this iframe's own document, never the real page a visitor sees.
+  if (window.innerWidth <= 768) {
+    window.parent.postMessage({ type: "scroll-to-preview" }, "*");
   }
 }
 
@@ -2530,13 +2525,9 @@ function setAttachment(src, options = {}, el) {
 
   document.getElementById('attachmentName').textContent = options.name || "None";
 
-  // Smooth scroll to preview
-  const preview = document.getElementById('previewArea');
-  if (preview) {
-    preview.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
+  // Smooth scroll to preview — done by the parent page (see scrollToBacker)
+  if (window.innerWidth <= 768) {
+    window.parent.postMessage({ type: "scroll-to-preview" }, "*");
   }
 
 updateAllMiniPreviews(
