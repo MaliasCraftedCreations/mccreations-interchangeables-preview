@@ -2461,6 +2461,27 @@ const observer = new ResizeObserver(() => {
   sendHeightToParent();
 });
 
+  // iOS doesn't let a touch gesture that starts on an iframe scroll the
+// real page underneath it. This manually detects the swipe and tells
+// the real page to scroll by that amount instead.
+let lastTouchY = null;
+
+document.addEventListener("touchstart", function(e) {
+  lastTouchY = e.touches[0].clientY;
+}, { passive: true });
+
+document.addEventListener("touchmove", function(e) {
+  if (lastTouchY === null) return;
+  const currentY = e.touches[0].clientY;
+  const deltaY = lastTouchY - currentY;
+  lastTouchY = currentY;
+  window.parent.postMessage({ type: "scroll-delta", deltaY: deltaY }, "*");
+}, { passive: true });
+
+document.addEventListener("touchend", function() {
+  lastTouchY = null;
+}, { passive: true });
+  
 observer.observe(document.body);
 function setBacker(src, name, el) {
 
