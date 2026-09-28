@@ -2460,27 +2460,6 @@ window.addEventListener("load", sendHeightToParent);
 const observer = new ResizeObserver(() => {
   sendHeightToParent();
 });
-
-  // iOS doesn't let a touch gesture that starts on an iframe scroll the
-// real page underneath it. This manually detects the swipe and tells
-// the real page to scroll by that amount instead.
-let lastTouchY = null;
-
-document.addEventListener("touchstart", function(e) {
-  lastTouchY = e.touches[0].clientY;
-}, { passive: true });
-
-document.addEventListener("touchmove", function(e) {
-  if (lastTouchY === null) return;
-  const currentY = e.touches[0].clientY;
-  const deltaY = lastTouchY - currentY;
-  lastTouchY = currentY;
-  window.parent.postMessage({ type: "scroll-delta", deltaY: deltaY }, "*");
-}, { passive: true });
-
-document.addEventListener("touchend", function() {
-  lastTouchY = null;
-}, { passive: true });
   
 observer.observe(document.body);
 function setBacker(src, name, el) {
@@ -2505,10 +2484,15 @@ updateAllMiniPreviews(src, document.getElementById('attachmentPreview').src);
 }
 
 function scrollToBacker() {
-  // Ask the PARENT page to scroll — scrollIntoView() can only scroll
-  // inside this iframe's own document, never the real page a visitor sees.
+  // Only scroll on mobile
   if (window.innerWidth <= 768) {
-    window.parent.postMessage({ type: "scroll-to-preview" }, "*");
+    const preview = document.getElementById('previewArea');
+    if (preview) {
+      preview.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
   }
 }
 
@@ -2546,9 +2530,13 @@ function setAttachment(src, options = {}, el) {
 
   document.getElementById('attachmentName').textContent = options.name || "None";
 
-  // Smooth scroll to preview — done by the parent page (see scrollToBacker)
-  if (window.innerWidth <= 768) {
-    window.parent.postMessage({ type: "scroll-to-preview" }, "*");
+  // Smooth scroll to preview
+  const preview = document.getElementById('previewArea');
+  if (preview) {
+    preview.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
   }
 
 updateAllMiniPreviews(
