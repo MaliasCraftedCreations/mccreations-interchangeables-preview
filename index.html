@@ -2839,26 +2839,35 @@ function updateOrderDisplay() {
 
   const pricing = computeOrderPricing();
 
-  backers.forEach((item, i) => {
+  function addRow(html, removeIndex) {
     const li = document.createElement("li");
     li.style.cssText = "display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;";
     li.innerHTML = `
-      <span>Backer: ${item.name} — $${pricing.backerPrices[i].toFixed(2)}</span>
-      <span onclick="removeFromOrder(${i})" style="cursor:pointer;font-weight:bold;margin-left:10px;">✕</span>
+      <span>${html}</span>
+      <span onclick="removeFromOrder(${removeIndex})" style="cursor:pointer;font-weight:bold;margin-left:10px;">✕</span>
     `;
     list.appendChild(li);
+  }
+
+  backers.forEach((item, i) => {
+    addRow(`Backer: ${item.name} — $${pricing.backerPrices[i].toFixed(2)}`, i);
+
+    const pairedIndex = pricing.pairedAttachmentIndex[i];
+    if (pairedIndex !== null) {
+      const a = attachments[pairedIndex];
+      const display = pricing.attachmentDisplay[pairedIndex];
+      addRow(
+        `Attachment: ${a.name} — Included with backer ($${display.fullPrice.toFixed(2)} value)`,
+        backers.length + pairedIndex
+      );
+    }
   });
 
+  // Any attachments not paired with a backer — true extras, full price
   attachments.forEach((item, i) => {
-    const display = pricing.attachmentDisplay[i];
-    const li = document.createElement("li");
-    li.style.cssText = "display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;";
-    const priceText = display.included ? " (included with backer)" : ` — $${display.price.toFixed(2)}`;
-    li.innerHTML = `
-      <span>Attachment: ${item.name}${priceText}</span>
-      <span onclick="removeFromOrder(${backers.length + i})" style="cursor:pointer;font-weight:bold;margin-left:10px;">✕</span>
-    `;
-    list.appendChild(li);
+    if (!pricing.includedSet.has(i)) {
+      addRow(`Attachment: ${item.name} — $${item.price.toFixed(2)}`, backers.length + i);
+    }
   });
 
   let totalRow = document.getElementById("orderTotalRow");
@@ -2875,7 +2884,7 @@ function updateOrderDisplay() {
     totalRow.innerHTML = `
       Estimated Subtotal: $${pricing.total.toFixed(2)}
       <div style="font-weight:400;font-size:11px;color:#8b5e4f;margin-top:2px;">
-        Excludes shipping — final total will be confirmed with you directly.
+        Excludes shipping and any applicable sales tax — final total will be confirmed with you directly.
       </div>
     `;
     totalRow.style.display = "block";
@@ -2906,35 +2915,40 @@ function addSelectedAttachment() {
   }
 }
 
-  function computeOrderPricing() {
-  // Pair each backer with the cheapest available attachment first,
-  // so surcharges only happen when no $12 attachment is left to use.
+function computeOrderPricing() {
   const sortedIndices = attachments
     .map((a, i) => i)
     .sort((a, b) => attachments[a].price - attachments[b].price);
 
-  const includedIndices = new Set(sortedIndices.slice(0, backers.length));
+  // Which attachment (by index) pairs with each backer, in order
+  const includedIndices = sortedIndices.slice(0, backers.length);
+  const includedSet = new Set(includedIndices);
 
   const backerPrices = backers.map((b, i) => {
-    if (i < sortedIndices.length) {
-      const paired = attachments[sortedIndices[i]];
+    if (i < includedIndices.length) {
+      const paired = attachments[includedIndices[i]];
       const surcharge = Math.max(0, paired.price - INCLUDED_ATTACHMENT_PRICE);
       return BACKER_BASE_PRICE + surcharge;
     }
     return BACKER_BASE_PRICE;
   });
 
-  const attachmentDisplay = attachments.map((a, i) => {
-    if (includedIndices.has(i)) {
-      return { name: a.name, price: 0, included: true };
-    }
-    return { name: a.name, price: a.price, included: false };
-  });
+  // For each backer, which attachment index is bundled with it (or null)
+  const pairedAttachmentIndex = backers.map((b, i) =>
+    i < includedIndices.length ? includedIndices[i] : null
+  );
+
+  const attachmentDisplay = attachments.map((a, i) => ({
+    name: a.name,
+    fullPrice: a.price,
+    price: includedSet.has(i) ? 0 : a.price,
+    included: includedSet.has(i)
+  }));
 
   const total = backerPrices.reduce((s, p) => s + p, 0) +
                 attachmentDisplay.reduce((s, a) => s + a.price, 0);
 
-  return { backerPrices, attachmentDisplay, total };
+  return { backerPrices, attachmentDisplay, pairedAttachmentIndex, includedSet, total };
 }
   
 </script>
@@ -2946,16 +2960,23 @@ function getOrderText() {
 
   backers.forEach((item, i) => {
     lines.push(`- Backer: ${item.name} - $${pricing.backerPrices[i].toFixed(2)}`);
+
+    const pairedIndex = pricing.pairedAttachmentIndex[i];
+    if (pairedIndex !== null) {
+      const a = attachments[pairedIndex];
+      const display = pricing.attachmentDisplay[pairedIndex];
+      lines.push(`  - Attachment: ${a.name} - Included with backer ($${display.fullPrice.toFixed(2)} value)`);
+    }
   });
 
   attachments.forEach((item, i) => {
-    const display = pricing.attachmentDisplay[i];
-    const priceText = display.included ? " (included with backer)" : ` - $${display.price.toFixed(2)}`;
-    lines.push(`- Attachment: ${item.name}${priceText}`);
+    if (!pricing.includedSet.has(i)) {
+      lines.push(`- Attachment: ${item.name} - $${item.price.toFixed(2)}`);
+    }
   });
 
   lines.push("");
-  lines.push(`Estimated Subtotal: $${pricing.total.toFixed(2)} (excludes shipping — final total will be confirmed with you)`);
+  lines.push(`Estimated Subtotal: $${pricing.total.toFixed(2)} (excludes shipping and any applicable sales tax — final total will be confirmed with you)`);
 
   return lines.join("\n");
 }
