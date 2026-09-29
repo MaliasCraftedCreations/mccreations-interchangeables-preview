@@ -2839,6 +2839,16 @@ function updateOrderDisplay() {
 
   const pricing = computeOrderPricing();
 
+    function addPairedRow(html, removeIndex) {
+    const li = document.createElement("li");
+    li.style.cssText = "display:flex;justify-content:space-between;align-items:center;margin:2px 0 8px 18px;font-size:12px;color:#6b4a3d;list-style:none;";
+    li.innerHTML = `
+      <span>${html}</span>
+      <span onclick="removeFromOrder(${removeIndex})" style="cursor:pointer;font-weight:bold;margin-left:10px;">✕</span>
+    `;
+    list.appendChild(li);
+  }
+  
   function addRow(html, removeIndex) {
     const li = document.createElement("li");
     li.style.cssText = "display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;";
@@ -2856,8 +2866,8 @@ function updateOrderDisplay() {
     if (pairedIndex !== null) {
       const a = attachments[pairedIndex];
       const display = pricing.attachmentDisplay[pairedIndex];
-      addRow(
-        `Attachment: ${a.name} — Included with backer ($${display.fullPrice.toFixed(2)} value)`,
+      addPairedRow(
+        `↳ Attachment: ${a.name} (included with backer — $${display.fullPrice.toFixed(2)} value)`,
         backers.length + pairedIndex
       );
     }
@@ -2965,7 +2975,7 @@ function getOrderText() {
     if (pairedIndex !== null) {
       const a = attachments[pairedIndex];
       const display = pricing.attachmentDisplay[pairedIndex];
-      lines.push(`  - Attachment: ${a.name} - Included with backer ($${display.fullPrice.toFixed(2)} value)`);
+      lines.push(`    ↳ Attachment: ${a.name} (included with backer — $${display.fullPrice.toFixed(2)} value)`);
     }
   });
 
